@@ -3,7 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bcrypt-nodejs": "^0.0.3",
     "bootstrap": "^4.2.1",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.10",
+    "passport": "^0.4.0",
     "react": "^16.7.0",
     "react-bootstrap": "^1.0.0-beta.5",
     "react-dom": "^16.7.0",
