@@ -24,7 +24,7 @@ yarn start
 
 Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
 
-## Deployment (Heroku)
+## Deployment (Through GitHub, automatically updates to heroku)
 
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
+Every time there is a change to master it is automatically updated on Heroku.
 # habitix
