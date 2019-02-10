@@ -1,5 +1,4 @@
 import axios from "axios";
-require('axios-debug')(axios);
 
 export default {
 

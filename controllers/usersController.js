@@ -21,10 +21,10 @@ exports.signUpUser = function(req,res) {
           const newUser       = new User();
         
           // set the user's local credentials
-          newUser.first_name = req.body.first_name;
-          newUser.last_name = req.body.last_name;
-          newUser.username    = req.body.username;
-          newUser.email       = req.body.email;
+          newUser.first_name = req.body.firstName;
+          newUser.last_name = req.body.lastName;
+          newUser.username    = req.body.userName;
+          newUser.email       = req.body.emailAddress;
           newUser.password    = newUser.generateHash(req.body.password);
   console.log(newUser);
           // save the user
