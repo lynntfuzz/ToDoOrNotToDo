@@ -32,11 +32,11 @@ var challengeSchema = mongoose.Schema({
         required: [true, 'Please enter a maximum number of participants.']
     },
     
-    invitedMembers : [{ type: Schema.Types.ObjectId, ref: 'User' }],
+    invitedMembers : [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
 
-    confirmedMembers : [{ type: Schema.Types.ObjectId, ref: 'User' }],
+    confirmedMembers : [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
 
-    admin:{ type: Schema.Types.ObjectId, ref: 'User' }
+    admin:{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 });
 
 
