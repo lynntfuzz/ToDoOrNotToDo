@@ -31,6 +31,8 @@ var challengeSchema = mongoose.Schema({
         max: [100],
         required: [true, 'Please enter a maximum number of participants.']
     },
+
+    toDoItems : [{type: mongoose.Schema.Types.ObjectId, ref: 'ToDoItem'}],
     
     invitedMembers : [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
 
@@ -38,8 +40,6 @@ var challengeSchema = mongoose.Schema({
 
     admin:{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 });
-
-
 
 // create the model for Challenges and expose it to our app
 module.exports = mongoose.model('Challenge', challengeSchema);

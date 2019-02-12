@@ -36,7 +36,7 @@ class SignUp extends Component {
         email: this.state.emailAddress
       })
         .then(console.log("we created a user"))
-        .cath(err => console.log(err));
+        .catch(err => console.log(err));
     }
   };
 
