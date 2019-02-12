@@ -6,11 +6,11 @@ import { Input, FormBtn } from "../components/Form";
 
 class SignUp extends Component {
   state = {
-    firstName: "",
-    lastName: "",
-    userName: "",
+    first_name: "",
+    last_name: "",
+    username: "",
     password: "",
-    emailAddress: ""
+    email: ""
   };
 
   handleInputChange = event => {
@@ -23,17 +23,18 @@ class SignUp extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     if (
-      this.state.emailAddress &&
-      this.state.firstName &&
-      this.state.lastName &&
-      this.state.password
+      this.state.email &&
+      this.state.first_name &&
+      this.state.last_name &&
+      this.state.password &&
+      this.state.username
     ) {
       API.createUsers({
-        first_name: this.state.firstName,
-        last_name: this.state.lastName,
-        username: this.state.userName,
+        first_name: this.state.first_name,
+        last_name: this.state.last_name,
+        username: this.state.username,
         password: this.state.password,
-        email: this.state.emailAddress
+        email: this.state.email
       })
         .then(console.log("we created a user"))
         .catch(err => console.log(err));
@@ -50,21 +51,21 @@ class SignUp extends Component {
             </Jumbotron>
             <form>
               <Input
-                value={this.state.firstName}
+                value={this.state.first_name}
                 onChange={this.handleInputChange}
-                name="firstName"
+                name="first_name"
                 placeholder="First Name (required)"
               />
               <Input
-                value={this.state.lastName}
+                value={this.state.last_name}
                 onChange={this.handleInputChange}
-                name="lastName"
+                name="last_name"
                 placeholder="Last Name (required)"
               />
               <Input
-                value={this.state.userName}
+                value={this.state.user_name}
                 onChange={this.handleInputChange}
-                name="userName"
+                name="username"
                 placeholder="Username (required)"
               />
               <Input
@@ -74,20 +75,20 @@ class SignUp extends Component {
                 placeholder="Password (required)"
               />
               <Input
-                value={this.state.emailAddress}
+                value={this.state.email}
                 onChange={this.handleInputChange}
-                name="emailAddress"
+                name="email"
                 placeholder="Email Adddress (required)"
               />
 
               <FormBtn
                 disabled={
                   !(
-                    this.state.firstName &&
-                    this.state.lastName &&
-                    this.state.userName &&
+                    this.state.first_name &&
+                    this.state.last_name &&
+                    this.state.username &&
                     this.state.password &&
-                    this.state.emailAddress
+                    this.state.email
                   )
                 }
                 onClick={this.handleFormSubmit}

@@ -7,6 +7,7 @@ export default {
     },
 
     createUsers: function(userData) {
+        console.log("createUsers");
         return axios.post("/api/users", userData);
     }
 
