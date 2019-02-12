@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-export { default } from "./Jumbotron";
-=======
 import React from "react";
 
 function Jumbotron({ children }) {
@@ -15,4 +12,3 @@ function Jumbotron({ children }) {
 }
 
 export default Jumbotron;
->>>>>>> 0be1e2a7559e37e66ed108012d43c5849b5c41ab
