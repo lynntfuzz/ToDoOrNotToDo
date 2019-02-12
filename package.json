@@ -27,6 +27,11 @@
     "morgan": "^1.9.1",
     "passport": "^0.4.0",
     "react": "^16.8.1",
+<<<<<<< HEAD
     "semantic-ui-react": "^0.85.0"
+=======
+    "react-dom": "^16.8.1",
+    "reactstrap": "^7.1.0"
+>>>>>>> a45a806663dc2055c95ebf471ac697bc78dfde8c
   }
 }
