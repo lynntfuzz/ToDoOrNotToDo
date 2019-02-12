@@ -7,10 +7,10 @@ class Home extends Component {
     super(props);
     this.state =  {
       currentUser: null
-  } 
-}
+    } 
+  }
 
-render() {
+  render() {
     return <div>
     <Jumbotron><h1>Hello Habitrons</h1></Jumbotron>
     <ChallengeListView />
