@@ -8,10 +8,10 @@ class Home extends Component {
     super(props);
     this.state =  {
       currentUser: null
-  } 
-}
+    } 
+  }
 
-render() {
+  render() {
     return <div>
     <Navbar />
     <Jumbotron><h1>Hello Habitrons</h1></Jumbotron>

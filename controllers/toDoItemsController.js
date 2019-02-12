@@ -25,7 +25,7 @@ exports.createToDoItem = function(req,res) {
     });  
 };
 
-exports.updatedbToDoItem = function(req,res) {
+exports.updateToDoItem = function(req,res) {
     console.log("toDoItemsController.updatedbToDoItem");
     dbToDoItem.findByIdAndUpdate(rep.params._id, req.body)
     .then(function(dbdbToDoItem) {
