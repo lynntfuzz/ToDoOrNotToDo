@@ -32,7 +32,7 @@ var userSchema = mongoose.Schema({
         type: String,
         min: [1, 'Too few characters'],
         required: [true, 'Please enter a last name.']
-    }
+    },
 
 });
 
