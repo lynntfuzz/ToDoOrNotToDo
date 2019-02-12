@@ -25,6 +25,8 @@
     "if-env": "^1.0.4",
     "mongoose": "^5.4.10",
     "morgan": "^1.9.1",
-    "passport": "^0.4.0"
+    "passport": "^0.4.0",
+    "react-dom": "^16.8.1",
+    "reactstrap": "^7.1.0"
   }
 }
