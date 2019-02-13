@@ -1,5 +1,6 @@
 import React from 'react';
 import { Nav, NavItem, Dropdown, DropdownItem, DropdownToggle, DropdownMenu, NavLink} from 'reactstrap'   
+require('./navbar.css')
 
 export default class Navigation extends React.Component {
   constructor(props) {
@@ -22,7 +23,7 @@ export default class Navigation extends React.Component {
       <div>
         <Nav tabs>
           <NavItem>
-            <NavLink href="#" active>Sign In</NavLink>
+            <NavLink href="/login" active>Log In</NavLink>
           </NavItem>
           <Dropdown nav isOpen={this.state.dropdownOpen} toggle={this.toggle}>
             <DropdownToggle nav caret>
@@ -30,10 +31,10 @@ export default class Navigation extends React.Component {
             </DropdownToggle>
             <DropdownMenu>
               
+             
               <DropdownItem >Create a Challenge</DropdownItem>
-              <DropdownItem></DropdownItem>
-              <DropdownItem divider />
               <DropdownItem>Create a Habit</DropdownItem>
+             
             </DropdownMenu>
           </Dropdown>
           <NavItem>
