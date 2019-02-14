@@ -7,5 +7,6 @@ const toDoItemRoutes = require("./toDoItems");
 router.use("/users", userRoutes);
 router.use("/challenges", challengeRoutes);
 router.use("/toDoItems", toDoItemRoutes);
+router.use("/login", userRoutes);
 
 module.exports = router;
