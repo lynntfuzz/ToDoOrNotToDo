@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link, Redirect } from "react-router-dom";
 import SignUp from '../pages/SignUp';
 import axios from 'axios';
-import Navbar from '../components/navbar'
+import Navbar from './navbar'
 
 
 // extend Login as a component so it can be exported as a stateful component.

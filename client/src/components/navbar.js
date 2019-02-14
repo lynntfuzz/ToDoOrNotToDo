@@ -23,7 +23,7 @@ export default class Navigation extends React.Component {
       <div>
         <Nav tabs>
           <NavItem>
-            <NavLink href="/login" active>Log In</NavLink>
+            <NavLink href="/" active>Home</NavLink>
           </NavItem>
           <Dropdown nav isOpen={this.state.dropdownOpen} toggle={this.toggle}>
             <DropdownToggle nav caret>
@@ -34,7 +34,7 @@ export default class Navigation extends React.Component {
              
               <DropdownItem >Create a Challenge</DropdownItem>
               <DropdownItem>Create a Habit</DropdownItem>
-             
+              <DropdownItem href="/Login" active>Log In</DropdownItem>
             </DropdownMenu>
           </Dropdown>
           <NavItem>
