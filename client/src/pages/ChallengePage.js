@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import ChallengeListView from '../components/ChallengeListView';
 
 class ChallengePage extends Component {
     constructor(props) {
@@ -10,6 +10,7 @@ class ChallengePage extends Component {
         console.log("challengePage.render()");
         
         return <div>
+            
             <h1>Challenge Page</h1>
         </div>;
     }
