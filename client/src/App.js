@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import ChallengePage from "./pages/ChallengePage";
 import SignUp from "./pages/SignUp";
-import Login from "../src/components/login"
+import Login from "../src/components/Login"
 import logo from "./logo.svg";
 import "./App.css";
 
