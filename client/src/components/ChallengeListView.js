@@ -1,42 +1,25 @@
 import React, { Component } from "react";
-import axios from 'axios'; 
-import ChallengeModal from './ChallengeModal';
-
+import { Label } from "reactstrap";
 
 class ChallengeListView extends Component {
     constructor(props){
         super(props);
-        this.state = {
-            challenges: [],
-            show: false
-        }
     }
 
     componentDidMount() {
-        console.log("ChallengeListView.componentDidMount()");
-        axios.get('/api/challenges')
-        .then(function (data) {
-            console.log(data.data);
-            this.setState({challenges: data.data});
-        }.bind(this)).catch(function (err) {
-            console.log(err);
-      });
-    }
-
-    addChallenge() {
-    
+        console.log("ChallengeListView.componentDidMount()");   
     }
     
     render() {
+        console.log("ChallengeListView.render()");
+        console.log(this.props.challenges);
         
-        let challengeListItems = this.state.challenges.map(function (challenge) {
+        let challengeListItems = this.props.challenges.map((challenge) =>  {
             return <div className="item" key={challenge._id}>
                 <i className="large calendar check outline middle aligned icon"></i>
                 <div className="content">
-                    <a className="header" href="/challenge">{challenge.name}</a>
-                   
-                    {/* <Link to={{ pathname: '/challenge', state: { _id: challenge._id} }}>{challenge.name}</Link> */}
-                </div>
+                    <h5 className="header" onClick={() => this.props.selectChallenge(challenge)}> {challenge.name}</h5>
+               </div>
             </div>
         });
 
@@ -48,7 +31,6 @@ class ChallengeListView extends Component {
                     {challengeListItems}
                     {/* <button className="ui button primary" onClick={this.showModal}>Add Challenge</button> */}
                 </ul>
-                <ChallengeModal/>
 
             </div>
         )

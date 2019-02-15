@@ -34,11 +34,11 @@ var challengeSchema = mongoose.Schema({
 
     toDoItems : [{type: mongoose.Schema.Types.ObjectId, ref: 'ToDoItem'}],
     
-    invitedMembers : [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+    // invitedMembers : [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
 
-    confirmedMembers : [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+    // confirmedMembers : [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
 
-    admin:{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }
+    // admin:{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 });
 
 // create the model for Challenges and expose it to our app
