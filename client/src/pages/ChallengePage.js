@@ -13,18 +13,21 @@ class ChallengePage extends Component {
     }
     
     componentDidMount() {
-        console.log("ChallengePage.componentDidMount()");
+        //console.log("ChallengePage.componentDidMount()");
         axios.get('/api/challenges')
         .then(function (data) {
-            console.log(data.data);
+            //console.log(data.data);
             this.setState({challenges: data.data});
+            if (this.state.challenges.length > 0) {
+                this.setState({selectedChallenge: this.state.challenges[0]})
+            }
         }.bind(this)).catch(function (err) {
             console.log(err);
       });
     }
 
     selectChallenge(newChallenge) {
-        console.log("ChallengePage.selectChallenge()"); console.log(newChallenge.name);
+        //console.log("ChallengePage.selectChallenge()"); console.log(newChallenge.name);
         this.setState({selectedChallenge: newChallenge});
     }
 
@@ -39,25 +42,18 @@ class ChallengePage extends Component {
     doAddNewToDoItem(challenge) {
        
         let toDoItem = {
-            name : "Sleep",
-            description : "Sleep at least 7 hours each day.",
+            name : "Work 10 minutes on career assets",
+            description : "Edit/update Linked In, CV, GitHub",
             challenge: challenge._id
         }
 
 
-       console.log(toDoItem);
+       //console.log(toDoItem);
         
         axios.post('/api/toDoItems', toDoItem)
             .then(function (response) {
-                console.log("Saving to do Item response:");
-                console.log(response);
-                challenge.toDoItems.push(response);
-                axios.post('/api/challenge', challenge)
-                .then(function (response) {
-                    console.log("Saving challenge response:");
-                    console.log(response);
-                  }
-                );
+                //console.log("Saving to do Item response:");
+                //console.log(response);
             }
         
         )
@@ -78,7 +74,7 @@ class ChallengePage extends Component {
         <FormGroup row>
           <Label for="name" sm={2}>Name</Label>
           <Col sm={10}>
-            <Input type="name" name="name" id="name" placeholder="name" value={this.state.selectedChallenge.name} />
+            <Input type="name" name="name" id="name" placeholder="name" value={this.state.selectedChallenge.name}/>
           </Col>
         </FormGroup>
         <FormGroup row>
@@ -93,34 +89,19 @@ class ChallengePage extends Component {
             <Input type="date" name="enddate" id="enddate"  value={this.formatDate(this.state.selectedChallenge.enddate)} />
           </Col>
         </FormGroup>
-        <FormGroup tag="fieldset" row>
-        <Col>
-          <Label className="">Is challenge open to participants?</Label>
-          </Col>
-          <Col>
-            <FormGroup check>
-              <Label check>
-                <Input type="radio" name="radio1" />{' '}
-                Yes
-              </Label>
-            </FormGroup>
-            </Col>
-            <Col>
-            <FormGroup check>
-              <Label check>
-                <Input type="radio" name="radio1" />{' '}
-                No
-                </Label>
-            </FormGroup>
-            </Col>
-        </FormGroup>
+        {/* <FormGroup row>
+            <Label for="isopencheck" sm={2}>Open to participants?</Label>
+            <Col sm={10}>
+                <Input type="checkbox" name="isopencheck" value={this.state.selectedChallenge.isOpen}/> 
+            </Col>      
+        </FormGroup> */}
       
     <ToDoListView toDoItems={this.state.selectedChallenge.toDoItems}/>  
 
        
         <FormGroup check row>
           <Col sm={{ size: 10, offset: 2 }}>
-            <Button onClick={() => this.doAddNewToDoItem(this.state.selectedChallenge)}>Add New To Do Item</Button>
+            {/* <Button onClick={() => this.doAddNewToDoItem(this.state.selectedChallenge)}>Add New To Do Item</Button> */}
           </Col>
         </FormGroup>
       </Form>
