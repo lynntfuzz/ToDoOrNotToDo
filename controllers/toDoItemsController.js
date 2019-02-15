@@ -18,7 +18,8 @@ exports.createToDoItem = function(req,res) {
     ToDoItem.create(req.body)
     .then(function(dbToDoItem) {
         console.log(dbToDoItem);
-        res.send({ success: true });
+        res.json(dbToDoItem);
+        //res.send({ success: true });
     })
     .catch(function(err) {
         console.log(err.message);
@@ -30,6 +31,7 @@ exports.updateToDoItem = function(req,res) {
     dbToDoItem.findByIdAndUpdate(rep.params._id, req.body)
     .then(function(dbdbToDoItem) {
         console.log(dbdbToDoItem);
+        //res.json(dbToDoItem);
         res.send({ success: true });
     })
     .catch(function(err) {

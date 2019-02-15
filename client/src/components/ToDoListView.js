@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import { ListGroup, ListGroupItem } from "reactstrap";
 
 class ToDoListView extends Component {
-    constructor(props){
-        super(props);
-    }
-
 
     render() {
         console.log(this.props.toDoItems);

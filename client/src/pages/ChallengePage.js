@@ -1,12 +1,9 @@
 import React, { Component } from "react";
-import { Container, Col, Row, Label, FormGroup, Form, Input, Button, ListGroup, ListGroupItem } from "reactstrap";
-import Jumbotron from '../components/Jumbotron';
+import { Container, Col, Row, Label, FormGroup, Form, Input, Button} from "reactstrap";
 import Navbar from '../components/navbar';
 import axios from 'axios'; 
-import ChallengeModal from '../components/ChallengeModal';
 import ChallengeListView from '../components/ChallengeListView';
 import ToDoListView from '../components/ToDoListView';
-import Moment from 'react-moment';
 
 class ChallengePage extends Component {
     constructor(props) {
@@ -46,13 +43,24 @@ class ChallengePage extends Component {
             description : "Sleep at least 7 hours each day.",
             challenge: challenge._id
         }
+
+
        console.log(toDoItem);
         
         axios.post('/api/toDoItems', toDoItem)
             .then(function (response) {
+                console.log("Saving to do Item response:");
                 console.log(response);
+                challenge.toDoItems.push(response);
+                axios.post('/api/challenge', challenge)
+                .then(function (response) {
+                    console.log("Saving challenge response:");
+                    console.log(response);
+                  }
+                );
             }
-        );
+        
+        )
     }
 
 

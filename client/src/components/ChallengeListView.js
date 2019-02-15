@@ -1,10 +1,7 @@
 import React, { Component } from "react";
-import { Label } from "reactstrap";
 
 class ChallengeListView extends Component {
-    constructor(props){
-        super(props);
-    }
+   
 
     componentDidMount() {
         console.log("ChallengeListView.componentDidMount()");   

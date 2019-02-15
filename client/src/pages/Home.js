@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import ChallengeListView from '../components/ChallengeListView';
 import Jumbotron from '../components/Jumbotron';
 import Navbar from '../components/navbar'
+import Leaderboard from "../components/Leaderboard/leaderboard";
+import Ad from "../components/Ads";
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -12,9 +13,10 @@ class Home extends Component {
 
   render() {
     return <div>
-    <Navbar/>
+    <Navbar />
     <Jumbotron><h1>Hello Habitrons</h1></Jumbotron>
-    <ChallengeListView />
+    <Leaderboard />
+    <Ad />
     </div>;
   }
 }

@@ -33,6 +33,7 @@ var challengeSchema = mongoose.Schema({
     },
 
     toDoItems : [{type: mongoose.Schema.Types.ObjectId, ref: 'ToDoItem'}],
+   
     
     // invitedMembers : [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
 

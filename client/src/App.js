@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import ChallengePage from "./pages/ChallengePage";
 import SignUp from "./pages/SignUp";
-import logo from "./logo.svg";
+import Login from "../src/components/Login"
 import "./App.css";
 
 class App extends Component {
@@ -15,6 +15,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route exact path="/challenge" component={ChallengePage} />
           <Route exact path='/signup' component={SignUp} />
+          <Route exact path='/login' component={Login} />
         </Switch>
       </div>
     </Router>
