@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Table } from 'reactstrap';
-import LeaderboardHeader from './leaderboardHeader'
-import LeaderboardRow from "./leaderboardRow"
+import axios from 'axios';
+import LeaderboardHeader from './leaderboardHeader';
+import LeaderboardRow from "./leaderboardRow";
 
 
 export default class Leaderboard extends React.Component {
@@ -14,7 +14,7 @@ export default class Leaderboard extends React.Component {
     this.handleSort = this.handleSort.bind(this)
   }
   componentDidMount() {
-    fetch('https://todohabits.herokuapp.com/users')
+    fetch('https://localhost:3001//api/users')
       .then((response) => response.json())
       .then((json) =>this.setState({
         data: json
@@ -26,6 +26,7 @@ export default class Leaderboard extends React.Component {
         (a,b) => parseInt(a[attr],10) > parseInt(b[attr], 10) ? -1:1
       )})
   }
+  
   render() {
     const rows = this.state.data.map((row, index) =>
       <LeaderboardRow

@@ -6,7 +6,7 @@ export default class leaderboardRow extends Component {
       <tr className={this.props.className}>
         <td>{this.props.position}</td>
         <td>{this.props.username}</td>
-        <td>{this.props.alltime}</td>
+        <td>{this.props.challengesController.findAll}</td>
         <td>{this.props.recent}</td>
       </tr>
     )
