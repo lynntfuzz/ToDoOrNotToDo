@@ -41,7 +41,7 @@ export default class Navigation extends React.Component {
             <NavLink href="#">Calendar</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="#">My Group</NavLink>
+            <NavLink href="/challenge">My Challenges</NavLink>
           </NavItem>
         </Nav>
       </div>
