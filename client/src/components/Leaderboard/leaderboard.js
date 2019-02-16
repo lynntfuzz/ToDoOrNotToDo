@@ -8,18 +8,44 @@ export default class Leaderboard extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      data:[]
+      data:[],
+      id: 0,
+      message: null,
+      intervalIsSet:false,
+      
     }
     this.componentDidMount = this.componentDidMount.bind(this)
     this.handleSort = this.handleSort.bind(this)
   }
   componentDidMount() {
-    fetch('https://localhost:3001//api/users')
-      .then((response) => response.json())
-      .then((json) =>this.setState({
-        data: json
-      }))
+    if (!this.state.intervalIsSet) {
+      let interval = setInterval(this.getDataFromDb, 1000);
+      this.setState({ intervalIsSet: interval });
+    }
   }
+
+  // never let a process live forever 
+  // always kill a process everytime we are done using it
+  componentWillUnmount() {
+    if (this.state.intervalIsSet) {
+      clearInterval(this.state.intervalIsSet);
+      this.setState({ intervalIsSet: null });
+    }
+  }
+
+  // just a note, here, in the front end, we use the id key of our data object 
+  // in order to identify which we want to Update or delete.
+  // for our back end, we use the object id assigned by MongoDB to modify 
+  // data base entries
+
+  // our first get method that uses our backend api to 
+  // fetch data from our data base
+getDataFromDB = () => {
+  fetch('https://localhost:3001//api/getUsers')
+  .then(data => data.json())
+  .then(res => this.setState({ data: res.data }));
+  };
+
   handleSort(attr) {
     this.setState({
       data: this.state.data.sort(
@@ -30,7 +56,7 @@ export default class Leaderboard extends React.Component {
   render() {
     const rows = this.state.data.map((row, index) =>
       <LeaderboardRow
-        key={row.username}
+        key={row.challenge}
         position={index + 1}
         username={row.username}
         alltime={row.alltime}
