@@ -4,6 +4,7 @@ import { Container, Col, Row } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import { Input, FormBtn } from "../components/Form";
 import { Redirect } from 'react-router';
+import Nav from "../components/navbar";
 
 class SignUp extends Component {
   state = {
@@ -44,6 +45,15 @@ class SignUp extends Component {
 
   render() {
     return (
+      <div>
+        <Nav
+          authenticated={this.props.authenticated}
+          authenticate={this.props.authenticate}
+          deAuthenticate={this.props.deAuthenticate}
+          logout={this.props.logout}
+        />
+     
+   
       <Container fluid>
         <Row>
           <Col size="md-6">
@@ -100,7 +110,9 @@ class SignUp extends Component {
           </Col>
         </Row>
       </Container>
+    </div>
     );
+
   }
 }
 
