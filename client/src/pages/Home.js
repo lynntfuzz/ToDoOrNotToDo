@@ -3,6 +3,8 @@ import Jumbotron from '../components/Jumbotron';
 import Navbar from '../components/navbar'
 import Leaderboard from "../components/Leaderboard/leaderboard";
 import Ad from "../components/Ads";
+
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -14,9 +16,10 @@ class Home extends Component {
   render() {
     return <div>
     <Navbar />
+    <Ad />
     <Jumbotron><h1>Hello Habitrons</h1></Jumbotron>
     <Leaderboard />
-    <Ad />
+   
     </div>;
   }
 }

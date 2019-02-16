@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Table } from 'reactstrap';
 import LeaderboardHeader from './leaderboardHeader'
 import LeaderboardRow from "./leaderboardRow"
-
+import ChallengeListView from "../ChallengeListView"
 
 export default class Leaderboard extends React.Component {
   constructor(props) {
@@ -14,7 +14,7 @@ export default class Leaderboard extends React.Component {
     this.handleSort = this.handleSort.bind(this)
   }
   componentDidMount() {
-    fetch('https://todohabits.herokuapp.com/users')
+    fetch('https://todohabits.herokuapp.com/findall')
       .then((response) => response.json())
       .then((json) =>this.setState({
         data: json
@@ -38,12 +38,12 @@ export default class Leaderboard extends React.Component {
       />)
 
     return (
-      <table className="pure-table">
+      <Table className="pure-table">
         <LeaderboardHeader onChange={this.handleSort} />
         <tbody>
           { rows }
         </tbody>
-      </table>
+      </Table>
     )
   }
 

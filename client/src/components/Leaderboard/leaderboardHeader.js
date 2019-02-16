@@ -7,8 +7,9 @@ export default class LeaderboardHeader extends Component {
                 <tr>
                     <th>Ranking</th>
                     <th>UserName</th>
-                    <th className='clikable' onClick={this.props.onChange.bind(this, 'alltime')}>Goals Completed</th>
           <th className="clickable" onClick={this.props.onChange.bind(this, 'recent')}>Last 30 days</th>
+          <th className='clikable' onClick={this.props.onChange.bind(this, 'alltime')}>Goals Completed</th>
+
                 </tr>
             </thead>
         )

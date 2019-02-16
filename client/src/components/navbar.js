@@ -21,7 +21,7 @@ export default class Navigation extends React.Component {
   render() {
     return (
       <div>
-        <Nav tabs>
+        <Nav>
           <NavItem>
             <NavLink href="/" active>Home</NavLink>
           </NavItem>
@@ -30,18 +30,15 @@ export default class Navigation extends React.Component {
               Habitrons
             </DropdownToggle>
             <DropdownMenu>
-              
-             
-              <DropdownItem >Create a Challenge</DropdownItem>
-              <DropdownItem>Create a Habit</DropdownItem>
-              <DropdownItem href="/Login" active>Log In</DropdownItem>
+              <DropdownItem href="/Challenge" >Create a Work Challenge</DropdownItem>
+              <DropdownItem href="/Challenge">Create a Health Challenge</DropdownItem>
             </DropdownMenu>
           </Dropdown>
           <NavItem>
-            <NavLink href="#">Calender</NavLink>
+            <NavLink href="#">My Group</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/challenge">My Challenges</NavLink>
+            <NavLink href="/Login">Log In</NavLink>
           </NavItem>
         </Nav>
       </div>
