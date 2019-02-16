@@ -71,6 +71,7 @@ export default class Login extends Component {
     }
     // If we have an email and password we run the loginUser function and clear the form
     this.loginUser(objSubmit);
+    this.props.history.push('/');
   }
 
   render() {

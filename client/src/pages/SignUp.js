@@ -40,6 +40,7 @@ class SignUp extends Component {
       })
         .then(console.log("we created a user"))
         .catch(err => console.log(err));
+        this.props.history.push('/login');
     }
   };
 
