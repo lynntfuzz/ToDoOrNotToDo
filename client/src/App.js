@@ -4,7 +4,6 @@ import Home from "./pages/Home";
 import ChallengePage from "./pages/ChallengePage";
 import SignUp from "./pages/SignUp";
 import Login from "../src/components/Login"
-import logo from "./logo.svg";
 import "./App.css";
 
 class App extends Component {
