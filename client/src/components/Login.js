@@ -3,7 +3,7 @@ import { Link, Redirect } from "react-router-dom";
 import SignUp from '../pages/SignUp';
 import axios from 'axios';
 import Navbar from './navbar'
-
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 // extend Login as a component so it can be exported as a stateful component.
 export default class Login extends React.Component {
@@ -88,13 +88,13 @@ export default class Login extends React.Component {
                 
                 <div className="loginmodal-container">
                     <h1 className="">Log in, Habitron</h1><br />
-                    <form className="login" onSubmit={this.handleSubmit.bind(this)}>
-                        <input id="username-input" ref="user" type="text" name="user" placeholder="Username" onChange={this.handleUsernameChange} value={this.state.username} />
-                        <input id="password-input" ref="password" type="password" name="pass" placeholder="Password" onChange={this.handlePasswordChange} value={this.state.password} />
-                        <input type="submit" name="login" className="login loginmodal-submit" value="Login" />
-                    </form>
+                    <FormGroup className="login" onSubmit={this.handleSubmit.bind(this)}>
+                        <Input id="username-input" ref="user" type="text" name="user" placeholder="Username" onChange={this.handleUsernameChange} value={this.state.username} />
+                        <Input id="password-input" ref="password" type="password" name="pass" placeholder="Password" onChange={this.handlePasswordChange} value={this.state.password} />
+                        <Button  className="login loginmodal-submit">Log In</Button>
+                    </FormGroup>
                     <div className="login-help">
-                        <Link to={"/signup"}> Register </Link>
+                        <Link to={"/SignUp"}> Register </Link>
                     </div>
                 </div>
             </div>

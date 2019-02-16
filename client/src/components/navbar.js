@@ -21,27 +21,28 @@ export default class Navigation extends React.Component {
   render() {
     return (
       <div>
-        <Nav tabs>
+        <Nav>
           <NavItem>
             <NavLink href="/" active>Home</NavLink>
           </NavItem>
           <Dropdown nav isOpen={this.state.dropdownOpen} toggle={this.toggle}>
             <DropdownToggle nav caret>
-              Habitrons
+            Challenges
             </DropdownToggle>
             <DropdownMenu>
-              
-             
-              <DropdownItem >Create a Challenge</DropdownItem>
-              <DropdownItem>Create a Habit</DropdownItem>
-              <DropdownItem href="/Login" active>Log In</DropdownItem>
+              <DropdownItem>Create A Health Challenge</DropdownItem>
+              <DropdownItem >Create a Work Challenge</DropdownItem>
+              <DropdownItem href="/challenge">My Challenges</DropdownItem>
             </DropdownMenu>
           </Dropdown>
+          <NavItem>
+            <NavLink href="#">Create A Group</NavLink>
+          </NavItem>
           <NavItem>
             <NavLink href="#">Calender</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/challenge">My Challenges</NavLink>
+            <NavLink href="/Login">Log in</NavLink>
           </NavItem>
         </Nav>
       </div>

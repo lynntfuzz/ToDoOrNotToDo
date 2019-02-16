@@ -14,9 +14,12 @@ class Home extends Component {
   render() {
     return <div>
     <Navbar />
-    <Jumbotron><h1>Hello Habitrons</h1></Jumbotron>
-    <Leaderboard />
     <Ad />
+    <Jumbotron>
+      <h1>Hello Habitron...</h1>
+    </Jumbotron>
+    <Leaderboard />
+    
     </div>;
   }
 }
