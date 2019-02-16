@@ -46,6 +46,7 @@ exports.signOutUser = function(req, res) {
 //login functionality
 
 exports.loginUser = (req, res, next) => {
+  console.log("this is the login API");
   return passport.authenticate("local", (err, userData) => {
     if (err) {
       if (err.name === "IncorrectCredentialsError") {
@@ -73,7 +74,7 @@ exports.loginUser = (req, res, next) => {
         message: "Could not do it."
       });
     }
-    console.log(userData, "this is the userData in users_api.js");
+    console.log(userData, "this is the userData in login.js");
     if (
       userData.message == "Invalid Password" ||
       userData.message == "User not Found"
