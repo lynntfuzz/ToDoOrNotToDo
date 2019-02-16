@@ -2,25 +2,24 @@ Arguments:
   /usr/local/bin/node /usr/local/bin/yarn install
 
 PATH: 
-  /usr/local/bin/mysql/:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 Yarn version: 
   1.13.0
 
 Node version: 
-  8.12.0
+  10.13.0
 
 Platform: 
   darwin x64
 
 Trace: 
-  SyntaxError: /Users/lynnthompson/Documents/testgit/master/ToDoOrNotToDo/package.json: Unexpected token < in JSON at position 862
+  SyntaxError: /Users/jobi/Documents/UCLA/github/homework/ToDoOrNotToDo/package.json: Unexpected token < in JSON at position 862
       at JSON.parse (<anonymous>)
       at /usr/local/lib/node_modules/yarn/lib/cli.js:1625:59
       at Generator.next (<anonymous>)
       at step (/usr/local/lib/node_modules/yarn/lib/cli.js:304:30)
       at /usr/local/lib/node_modules/yarn/lib/cli.js:315:13
-      at <anonymous>
 
 npm manifest: 
   {
@@ -55,9 +54,10 @@ npm manifest:
   <<<<<<< HEAD
       "semantic-ui-react": "^0.85.0"
   =======
+      "semantic-ui-react": "^0.85.0",
       "react-dom": "^16.8.1",
       "reactstrap": "^7.1.0"
-  >>>>>>> a45a806663dc2055c95ebf471ac697bc78dfde8c
+  >>>>>>> 312de423ce0c0e013cda377fd8222b99ba47424f
     }
   }
 
@@ -73,14 +73,13 @@ Lockfile:
   "@babel/runtime@^7.1.2":
   =======
   "@babel/runtime@^7.1.2", "@babel/runtime@^7.2.0":
-  >>>>>>> a45a806663dc2055c95ebf471ac697bc78dfde8c
+  >>>>>>> 312de423ce0c0e013cda377fd8222b99ba47424f
     version "7.3.1"
     resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.3.1.tgz#574b03e8e8a9898eaf4a872a92ea20b7846f6f2a"
     integrity sha512-7jGW8ppV0ant637pIqAcFfQDDH1orEPGJb8aXfUozuCU3QqX7rX4DA8iwrbPrR1hcH0FTTHz47yQnk+bl5xHQA==
     dependencies:
       regenerator-runtime "^0.12.0"
   
-  <<<<<<< HEAD
   "@semantic-ui-react/event-stack@^3.0.1":
     version "3.0.1"
     resolved "https://registry.yarnpkg.com/@semantic-ui-react/event-stack/-/event-stack-3.0.1.tgz#41d0b095ac94cc5e1607a4fed4d0f8860d0d2e60"
@@ -89,8 +88,6 @@ Lockfile:
       exenv "^1.2.2"
       prop-types "^15.6.2"
   
-  =======
-  >>>>>>> a45a806663dc2055c95ebf471ac697bc78dfde8c
   abbrev@1:
     version "1.1.1"
     resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
@@ -420,8 +417,8 @@ Lockfile:
   <<<<<<< HEAD
   classnames@^2.2.6:
   =======
-  classnames@^2.2.3:
-  >>>>>>> a45a806663dc2055c95ebf471ac697bc78dfde8c
+  classnames@^2.2.3, classnames@^2.2.6:
+  >>>>>>> 312de423ce0c0e013cda377fd8222b99ba47424f
     version "2.2.6"
     resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
     integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
@@ -656,13 +653,6 @@ Lockfile:
     version "1.0.3"
     resolved "https://registry.yarnpkg.com/detect-libc/-/detect-libc-1.0.3.tgz#fa137c4bd698edf55cd5cd02ac559f91a4c4ba9b"
     integrity sha1-+hN8S9aY7fVc1c0CrFWfkaTEups=
-  
-  dom-helpers@^3.3.1:
-    version "3.4.0"
-    resolved "https://registry.yarnpkg.com/dom-helpers/-/dom-helpers-3.4.0.tgz#e9b369700f959f62ecde5a6babde4bccd9169af8"
-    integrity sha512-LnuPJ+dwqKDIyotW1VzmOZ5TONUN7CwkCR5hrgawTUbkBGYdeoNLZo6nNfGkCrjtE1nXXaj7iMMpDa8/d9WoIA==
-    dependencies:
-      "@babel/runtime" "^7.1.2"
   
   dot-prop@^4.1.0:
     version "4.2.0"
@@ -1409,7 +1399,6 @@ Lockfile:
       path-exists "^3.0.0"
   
   <<<<<<< HEAD
-  lodash@^4.17.10, lodash@^4.17.11:
   =======
   lodash.isfunction@^3.0.9:
     version "3.0.9"
@@ -1426,8 +1415,8 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/lodash.tonumber/-/lodash.tonumber-4.0.3.tgz#0b96b31b35672793eb7f5a63ee791f1b9e9025d9"
     integrity sha1-C5azGzVnJ5Prf1pj7nkfG56QJdk=
   
-  lodash@^4.17.10:
-  >>>>>>> a45a806663dc2055c95ebf471ac697bc78dfde8c
+  >>>>>>> 312de423ce0c0e013cda377fd8222b99ba47424f
+  lodash@^4.17.10, lodash@^4.17.11:
     version "4.17.11"
     resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
     integrity sha512-cQKh8igo5QUhZ7lg38DYWAxMvjSAKG0A8wGSVimP07SIUEK2UO+arSRKbRZWtelMtN5V0Hkwh5ryOto/SshYIg==
@@ -1436,7 +1425,7 @@ Lockfile:
   loose-envify@^1.1.0:
   =======
   loose-envify@^1.1.0, loose-envify@^1.4.0:
-  >>>>>>> a45a806663dc2055c95ebf471ac697bc78dfde8c
+  >>>>>>> 312de423ce0c0e013cda377fd8222b99ba47424f
     version "1.4.0"
     resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
     integrity sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==
@@ -2040,11 +2029,6 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/pify/-/pify-3.0.0.tgz#e5a4acd2c101fdf3d9a4d07f0dbc4db49dd28176"
     integrity sha1-5aSs0sEB/fPZpNB/DbxNtJ3SgXY=
   
-  popper.js@^1.14.1:
-    version "1.14.7"
-    resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.14.7.tgz#e31ec06cfac6a97a53280c3e55e4e0c860e7738e"
-    integrity sha512-4q1hNvoUre/8srWsH7hnoSJ5xVmIL4qgz+s4qf2TnJIMyZFUFMGH+9vE7mXynAlHSZ/NdTmmow86muD0myUkVQ==
-  
   posix-character-classes@^0.1.0:
     version "0.1.1"
     resolved "https://registry.yarnpkg.com/posix-character-classes/-/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
@@ -2064,7 +2048,7 @@ Lockfile:
   prop-types@^15.6.2:
   =======
   prop-types@^15.5.8, prop-types@^15.6.1, prop-types@^15.6.2:
-  >>>>>>> a45a806663dc2055c95ebf471ac697bc78dfde8c
+  >>>>>>> 312de423ce0c0e013cda377fd8222b99ba47424f
     version "15.7.1"
     resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.1.tgz#2fa61e0a699d428b40320127733ee2931f05d9d1"
     integrity sha512-f8Lku2z9kERjOCcnDOPm68EBJAO2K00Q5mSgPAUE/gJuBgsYLbVy6owSrtcHj90zt8PvW+z0qaIIgsIhHOa1Qw==
@@ -2136,7 +2120,6 @@ Lockfile:
       strip-json-comments "~2.0.1"
   
   <<<<<<< HEAD
-  react-is@^16.7.0, react-is@^16.8.1:
   =======
   react-dom@^16.8.1:
     version "16.8.1"
@@ -2148,8 +2131,8 @@ Lockfile:
       prop-types "^15.6.2"
       scheduler "^0.13.1"
   
-  react-is@^16.8.1:
-  >>>>>>> a45a806663dc2055c95ebf471ac697bc78dfde8c
+  >>>>>>> 312de423ce0c0e013cda377fd8222b99ba47424f
+  react-is@^16.7.0, react-is@^16.8.1:
     version "16.8.1"
     resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.1.tgz#a80141e246eb894824fb4f2901c0c50ef31d4cdb"
     integrity sha512-ioMCzVDWvCvKD8eeT+iukyWrBGrA3DiFYkXfBsVYIRdaREZuBjENG+KjrikavCLasozqRWTwFUagU/O4vPpRMA==
@@ -2179,7 +2162,7 @@ Lockfile:
       prop-types "^15.6.2"
       react-lifecycles-compat "^3.0.4"
   
-  >>>>>>> a45a806663dc2055c95ebf471ac697bc78dfde8c
+  >>>>>>> 312de423ce0c0e013cda377fd8222b99ba47424f
   react@^16.8.1:
     version "16.8.1"
     resolved "https://registry.yarnpkg.com/react/-/react-16.8.1.tgz#ae11831f6cb2a05d58603a976afc8a558e852c4a"
@@ -2207,7 +2190,7 @@ Lockfile:
       react-popper "^0.10.4"
       react-transition-group "^2.3.1"
   
-  >>>>>>> a45a806663dc2055c95ebf471ac697bc78dfde8c
+  >>>>>>> 312de423ce0c0e013cda377fd8222b99ba47424f
   read-pkg@^4.0.1:
     version "4.0.1"
     resolved "https://registry.yarnpkg.com/read-pkg/-/read-pkg-4.0.1.tgz#963625378f3e1c4d48c85872b5a6ec7d5d093237"
@@ -2388,7 +2371,6 @@ Lockfile:
       loose-envify "^1.1.0"
       object-assign "^4.1.1"
   
-  <<<<<<< HEAD
   semantic-ui-react@^0.85.0:
     version "0.85.0"
     resolved "https://registry.yarnpkg.com/semantic-ui-react/-/semantic-ui-react-0.85.0.tgz#64ff420e6432e61bc798baf27d368f73cf0cad28"
@@ -2403,8 +2385,6 @@ Lockfile:
       react-is "^16.7.0"
       shallowequal "^1.1.0"
   
-  =======
-  >>>>>>> a45a806663dc2055c95ebf471ac697bc78dfde8c
   semver-diff@^2.0.0:
     version "2.1.0"
     resolved "https://registry.yarnpkg.com/semver-diff/-/semver-diff-2.1.0.tgz#4bbb8437c8d37e4b0cf1a68fd726ec6d645d6d36"
