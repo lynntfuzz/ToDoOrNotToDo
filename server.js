@@ -5,6 +5,7 @@ const app = express();
 const mongoose = require("mongoose");
 const routes = require("./routes");
 var morgan  = require('morgan');
+const passport = require("./config/passport");
 
 // Define middleware here
 app.use(morgan('dev'));
@@ -18,7 +19,8 @@ if (process.env.NODE_ENV === "production") {
 
 // Define API routes here
 app.use(routes);
-
+app.use(passport.initialize());
+app.use(passport.session());
 // Send every other request to the React app
 // Define any API routes before this runs
 // app.get("*", (req, res) => {

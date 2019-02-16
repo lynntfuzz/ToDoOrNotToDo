@@ -35,7 +35,7 @@ export default class Login extends Component {
 
   loginUser(submitObject) {
 
-    axios.post('/apis/login', submitObject)
+    axios.post('/api/login', submitObject)
       .then(function (data) {
         console.log(data.data);
         if (data.data.success) {
