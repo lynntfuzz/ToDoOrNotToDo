@@ -4,6 +4,7 @@ exports.findAll = function(req,res) {
     console.log("challengesController.findAll");
     Challenge.find({})
     .populate('toDoItems')
+    .populate('teammembers')
     .then(function(dbChallenges) {
       // If Challenges are successfully found, send them back to the client
       res.json(dbChallenges);
@@ -18,6 +19,7 @@ exports.findOneByID = function(req,res) {
     console.log("challengesController.findOneById");
     Challenge.findOne({ _id: req.params._id })
         .populate('subjects')
+        .populate('teammembers')
         .then(function(dbChallenge) {
             // If Challenges are successfully found, send them back to the client
             res.json(dbChallenge);
@@ -32,6 +34,7 @@ exports.findOneByName = function(req,res) {
     console.log("challengesController.findOneByName");
     Challenge.findOne({ name: req.params.name })
         .populate('subjects')
+        .populate('teammembers')
         .then(function(dbChallenge) {
             // If Challenges are successfully found, send them back to the client
             res.json(dbChallenge);
