@@ -17,6 +17,7 @@ class Home extends Component {
     return <div>
     <Navbar />
     <Jumbotron><h1>Hello Habitrons</h1></Jumbotron>
+    <Jumbotron><p>Today is the first day of the rest of your life. Use this handy tracking challenge, blach</p></Jumbotron>
     <Leaderboard />
     <Ad />
     </div>;
