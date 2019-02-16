@@ -1,10 +1,10 @@
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
 
-var User = require("../../../models/User");
+var User = require("../models/User");
 // Telling passport we want to use a Local Strategy. In other words, we want login with a username/email and password
 passport.use(new LocalStrategy(
-  // Our user will sign in using an email, rather than a "username"
+  // Our user will sign in using a username
   {
     usernameField: "username",
     passwordField: 'password'
@@ -24,6 +24,8 @@ passport.use(new LocalStrategy(
         return done(null, {message: "Invalid Password"}); // create the loginMessage and save it to session as flashdata
 
       // all is well, return successful user
+
+      console.log("successful login");
       return done(null, user);
     });
   }
