@@ -3,6 +3,7 @@ import API from "../utils/API";
 import { Container, Col, Row } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import { Input, FormBtn } from "../components/Form";
+import { Redirect } from 'react-router';
 
 class SignUp extends Component {
   state = {

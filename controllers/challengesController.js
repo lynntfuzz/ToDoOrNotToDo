@@ -56,7 +56,7 @@ exports.createChallenge = function(req,res) {
 
 exports.updateChallenge = function(req,res) {
     console.log("challengesController.updateChallenge");
-    Challenge.findByIdAndUpdate(rep.params._id, req.body)
+    Challenge.findByIdAndUpdate(req.params._id, req.body)
     .then(function(dbChallenge) {
         console.log(dbChallenge);
         res.send({ success: true });

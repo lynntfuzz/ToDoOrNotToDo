@@ -38,10 +38,10 @@ export default class Navigation extends React.Component {
             </DropdownMenu>
           </Dropdown>
           <NavItem>
-            <NavLink href="#">Calender</NavLink>
+            <NavLink href="#">Calendar</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="#">My Group</NavLink>
+            <NavLink href="/challenge">My Challenges</NavLink>
           </NavItem>
         </Nav>
       </div>
