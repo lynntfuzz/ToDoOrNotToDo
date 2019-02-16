@@ -7,7 +7,7 @@ const routes = require("./routes");
 var morgan  = require('morgan');
 
 // Define middleware here
-app.use(morgan('combined'));
+app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
