@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav, NavItem, Dropdown, DropdownItem, DropdownToggle, DropdownMenu, NavLink} from 'reactstrap'   
+import { Nav, NavItem, NavLink} from 'reactstrap'   
 require('./navbar.css')
 
 export default class Navigation extends React.Component {
@@ -21,28 +21,26 @@ export default class Navigation extends React.Component {
   render() {
     return (
       <div>
-        <Nav tabs>
+        <Nav>
           <NavItem>
             <NavLink href="/" active>Home</NavLink>
           </NavItem>
-          <Dropdown nav isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-            <DropdownToggle nav caret>
-              Habitrons
-            </DropdownToggle>
-            <DropdownMenu>
-              
-             
-              <DropdownItem >Create a Challenge</DropdownItem>
-              <DropdownItem>Create a Habit</DropdownItem>
-              <DropdownItem href="/Login" active>Log In</DropdownItem>
-            </DropdownMenu>
-          </Dropdown>
           <NavItem>
             <NavLink href="#">Calender</NavLink>
           </NavItem>
           <NavItem>
             <NavLink href="/challenge">My Challenges</NavLink>
           </NavItem>
+          <NavItem>
+            <NavLink href="#" active>Challenges</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="#" active>Create a Habit</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="/Login" active>Log In</NavLink>
+          </NavItem>
+
         </Nav>
       </div>
     );
