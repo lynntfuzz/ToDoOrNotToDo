@@ -17,9 +17,17 @@ class Home extends Component {
     return <div>
     <Navbar />
     <Ad />
+<<<<<<< HEAD
     <Jumbotron><h1>Hello Habitrons</h1></Jumbotron>
     <Leaderboard />
    
+=======
+    <Jumbotron>
+      <h1>Hello Habitron...</h1>
+    </Jumbotron>
+    <Leaderboard />
+    
+>>>>>>> 4159692504259a01aab6f96b54334d4d65dae151
     </div>;
   }
 }

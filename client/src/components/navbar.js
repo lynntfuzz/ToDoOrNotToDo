@@ -27,18 +27,22 @@ export default class Navigation extends React.Component {
           </NavItem>
           <Dropdown nav isOpen={this.state.dropdownOpen} toggle={this.toggle}>
             <DropdownToggle nav caret>
-              Habitrons
+            Challenges
             </DropdownToggle>
             <DropdownMenu>
-              <DropdownItem href="/Challenge" >Create a Work Challenge</DropdownItem>
-              <DropdownItem href="/Challenge">Create a Health Challenge</DropdownItem>
+              <DropdownItem>Create A Health Challenge</DropdownItem>
+              <DropdownItem >Create a Work Challenge</DropdownItem>
+              <DropdownItem href="/challenge">My Challenges</DropdownItem>
             </DropdownMenu>
           </Dropdown>
           <NavItem>
-            <NavLink href="#">My Group</NavLink>
+            <NavLink href="#">Create A Group</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/Login">Log In</NavLink>
+            <NavLink href="#">Calender</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="/Login">Log in</NavLink>
           </NavItem>
         </Nav>
       </div>

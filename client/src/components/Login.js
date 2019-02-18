@@ -2,9 +2,14 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
+<<<<<<< HEAD
 import Nav from './navbar'
 
 // require('./login.css');
+=======
+import Navbar from './navbar'
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+>>>>>>> 4159692504259a01aab6f96b54334d4d65dae151
 
 export default class Login extends Component {
 
@@ -73,6 +78,7 @@ export default class Login extends Component {
     this.loginUser(objSubmit);
   }
 
+<<<<<<< HEAD
   render() {
     const { from } = this.props.location.state || { from: { pathname: '/' } };
     const { redirectToReferrer } = this.state;
@@ -81,6 +87,31 @@ export default class Login extends Component {
       return (
         <Redirect to={from} />
       )
+=======
+            return(
+                <div>
+                    <Navbar
+                        authenticated={this.props.authenticated}
+                        authenticate={this.props.authenticate}
+                        deAuthenticate={this.props.deAuthenticate}
+                        logout={this.props.logout}
+                    />
+                
+                <div className="loginmodal-container">
+                    <h1 className="">Log in, Habitron</h1><br />
+                    <FormGroup className="login" onSubmit={this.handleSubmit.bind(this)}>
+                        <Input id="username-input" ref="user" type="text" name="user" placeholder="Username" onChange={this.handleUsernameChange} value={this.state.username} />
+                        <Input id="password-input" ref="password" type="password" name="pass" placeholder="Password" onChange={this.handlePasswordChange} value={this.state.password} />
+                        <Button  className="login loginmodal-submit">Log In</Button>
+                    </FormGroup>
+                    <div className="login-help">
+                        <Link to={"/SignUp"}> Register </Link>
+                    </div>
+                </div>
+            </div>
+            );
+        }
+>>>>>>> 4159692504259a01aab6f96b54334d4d65dae151
     }
 
     return (
