@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Container, Col, Row, Label, FormGroup, Form, Input, Button} from "reactstrap";
 import Navbar from '../components/navbar';
 import axios from 'axios'; 
-import ChallengeListView from '../components/ChallengeListView';
 import ToDoListView from '../components/ToDoListView';
+import TeamListView from '../components/TeamListView';
 
 class ChallengePage extends Component {
     constructor(props) {
@@ -145,7 +145,7 @@ class ChallengePage extends Component {
             </FormGroup> */}
       
             <ToDoListView toDoItems={this.state.selectedChallenge.toDoItems}/>  
-
+            <TeamListView teamMembers={this.state.selectedChallenge.teamMembers}/>
             
             <FormGroup check row>
                 <Col sm={{ size: 10, offset: 2 }}>

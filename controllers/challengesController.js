@@ -4,7 +4,7 @@ exports.findAll = function(req,res) {
     console.log("challengesController.findAll");
     Challenge.find({})
     .populate('toDoItems')
-    .populate('teammembers')
+    .populate('teamMembers')
     .then(function(dbChallenges) {
       // If Challenges are successfully found, send them back to the client
       res.json(dbChallenges);
@@ -38,7 +38,7 @@ exports.findOneByName = function(req,res) {
     console.log("challengesController.findOneByName");
     Challenge.findOne({ name: req.params.name })
         .populate('subjects')
-        .populate('teammembers')
+        .populate('teamMembers')
         .then(function(dbChallenge) {
             // If Challenges are successfully found, send them back to the client
             res.json(dbChallenge);
