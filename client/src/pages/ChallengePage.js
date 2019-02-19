@@ -8,12 +8,14 @@ import ToDoListView from '../components/ToDoListView';
 class ChallengePage extends Component {
     constructor(props) {
         super(props);
-        this.state = { challenges: [], selectedChallenge: {name: "empty"} }
-        
+        this.state = { 
+            challenges: [], 
+            selectedChallenge: {name: "empty"}
+        }    
     }
     
     componentDidMount() {
-        //console.log("ChallengePage.componentDidMount()");
+        console.log("ChallengePage.componentDidMount()");
         axios.get('/api/challenges')
         .then(function (data) {
             //console.log(data.data);
@@ -52,6 +54,13 @@ class ChallengePage extends Component {
         
         axios.post('/api/toDoItems', toDoItem)
             .then(function (response) {
+                // TODO I'm confused here and getting side-tracked
+                // should I reload the challenge and reset it in
+                // the state?
+                // axios.get("/challenges/" + response._id)
+                // .then( function (challenge){
+                //     challenge.toDoItems.push(toDoItem)
+                // });
                 //console.log("Saving to do Item response:");
                 //console.log(response);
             }
@@ -59,13 +68,38 @@ class ChallengePage extends Component {
         )
     }
 
+    // this doesn't work. It is a Promise chain and I can't pass the variables
+    // down to the next chain. Hopefully I will understand this soon.
     testAddingMembersToTeam() {
         console.log("ChallengePage.testAddingMembersToTeam()");
-        axios.get('/api/users')
-        .then( function (response) {
-            console.log(response);
-        });
-    }
+        // get fresh challenge from db
+        return axios.get('/api/challenges/' + this.state.selectedChallenge._id)
+        .then ( function (response) {
+            var challenge = response.data;
+            console.log("challenge 1 = ");
+            console.log(challenge);
+            return axios.get('/api/users')
+            // look up all users and add them as a team (for testing purposes only)
+            .then( (users, challenge) => {
+                console.log("challenge 2 = ");
+                console.log(challenge);
+                users.data.map((user, challenge) => {
+                    console.log("Adding user " + user.first_name + " " + "to challenge ");
+                    console.log(challenge);
+                    return challenge.teamMembers.push(user);
+                })
+                // Now save the challenge to the db (with the teammembers added) 
+                return axios.put("/api/challenges", this.state.selectedChallenge)    
+                // then set the selected Challenge to the new, fresh, edited object from the database
+                .then(function (updatedChallenge) {
+                    this.setState({selectedChallenge: updatedChallenge});
+                })
+                })
+            })
+        }
+        
+   
+    
 
 
     render() {
@@ -110,7 +144,7 @@ class ChallengePage extends Component {
             <FormGroup check row>
                 <Col sm={{ size: 10, offset: 2 }}>
                     {/* <Button onClick={() => this.doAddNewToDoItem(this.state.selectedChallenge)}>Add New To Do Item</Button> */}
-                    <Button onClick={() => this.testAddingMembersToTeam(this.state.selectedChallenge)}>Test Adding Team Member</Button>
+                    {/* <Button onClick={() => this.testAddingMembersToTeam(this.state.selectedChallenge)}>Test Adding Team Member</Button> */}
 
                 </Col>
                 </FormGroup>

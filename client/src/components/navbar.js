@@ -1,16 +1,22 @@
 import React from 'react';
+import axios from 'axios'; 
 import { Nav, NavItem, Dropdown, DropdownItem, DropdownToggle, DropdownMenu, NavLink} from 'reactstrap'   
 require('./navbar.css')
+
 
 export default class Navigation extends React.Component {
   constructor(props) {
     super(props);
+    console.log(this.props);
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      dropdownOpen: false
+      dropdownOpen: false,
+      // challenges: [],
+      // selectedChallenge: {name: "empty"} // later replacde this with empty string
     };
   }
+
 
   toggle() {
     this.setState({
@@ -27,22 +33,20 @@ export default class Navigation extends React.Component {
           </NavItem>
           <Dropdown nav isOpen={this.state.dropdownOpen} toggle={this.toggle}>
             <DropdownToggle nav caret>
-              Habitrons
+              My Challenges
             </DropdownToggle>
-            <DropdownMenu>
-              
-             
-              <DropdownItem >Create a Challenge</DropdownItem>
-              <DropdownItem>Create a Habit</DropdownItem>
-              <DropdownItem href="/Login" active>Log In</DropdownItem>
-            </DropdownMenu>
+            {/* <DropdownMenu>
+              {this.props.challenges.map(function(challenge, index){
+                    return <DropdownItem key = {index} value={ challenge } onClick={(e) => this.props.selectChallenge(e.target.value)}>{challenge.name}</DropdownItem>;
+                  }.bind(this))}
+            </DropdownMenu> */}
           </Dropdown>
           <NavItem>
             <NavLink href="#">Calendar</NavLink>
           </NavItem>
-          <NavItem>
+          {/* <NavItem>
             <NavLink href="/challenge">My Challenges</NavLink>
-          </NavItem>
+          </NavItem> */}
         </Nav>
       </div>
     );
