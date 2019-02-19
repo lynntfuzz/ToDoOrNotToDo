@@ -27,9 +27,9 @@ class ChallengePage extends Component {
             console.log(err);
       });
     }
-
-    selectChallenge(newChallenge) {
-        //console.log("ChallengePage.selectChallenge()"); console.log(newChallenge.name);
+    setSelectedChallenge = newChallenge =>  {
+        console.log("ChallengePage.selectChallenge()"); 
+        console.log(newChallenge);
         this.setState({selectedChallenge: newChallenge});
     }
 
@@ -105,12 +105,18 @@ class ChallengePage extends Component {
     render() {
 
         return <div>
-            <Navbar/>  
+            <Navbar authenticated={this.props.authenticated}
+                    authenticate={this.props.authenticate}
+                    deAuthenticate={this.props.deAuthenticate}
+                    logout={this.props.logout}
+                    selectedChallenge={this.state.selectedChallenge}
+                    challenges={this.state.challenges}
+                    setSelectedChallenge={this.setSelectedChallenge}
+                    />  
             <Container>
-                <Row>
-                    <Col med="2">.
-                     <ChallengeListView challenges={this.state.challenges} selectChallenge={(selectedChallenge) => this.selectChallenge(selectedChallenge)}/>
-                    </Col>
+                
+                    <h1>{this.state.selectedChallenge.name}</h1>
+                    <Row>
                     <Col med="10">.
                     <Form>
             <FormGroup row>

@@ -7,13 +7,10 @@ require('./navbar.css')
 export default class Navigation extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
-
+    console.log(props);
     this.toggle = this.toggle.bind(this);
     this.state = {
       dropdownOpen: false,
-      // challenges: [],
-      // selectedChallenge: {name: "empty"} // later replacde this with empty string
     };
   }
 
@@ -35,11 +32,14 @@ export default class Navigation extends React.Component {
             <DropdownToggle nav caret>
               My Challenges
             </DropdownToggle>
-            {/* <DropdownMenu>
-              {this.props.challenges.map(function(challenge, index){
-                    return <DropdownItem key = {index} value={ challenge } onClick={(e) => this.props.selectChallenge(e.target.value)}>{challenge.name}</DropdownItem>;
-                  }.bind(this))}
-            </DropdownMenu> */}
+            <DropdownMenu>
+              {this.props.challenges.map((challenge, index) => {
+                console.log(challenge);
+                    return <DropdownItem key={index} >
+                    <span onClick={ (e) => this.props.setSelectedChallenge(challenge)}>{challenge.name}</span>
+                    </DropdownItem>;
+              })}
+            </DropdownMenu> 
           </Dropdown>
           <NavItem>
             <NavLink href="#">Calendar</NavLink>
