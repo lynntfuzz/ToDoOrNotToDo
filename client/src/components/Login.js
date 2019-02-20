@@ -44,7 +44,7 @@ export default class Login extends Component {
             redirectToReferrer: true
           });
         } else {
-          alert(data.data.message);
+          console.log(data.data.message);
         }
       }.bind(this)).catch(function (err) {
         console.log(err);
