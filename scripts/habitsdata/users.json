@@ -1,0 +1,3 @@
+{"_id":{"$oid":"5c5d4a3b1ba9866b9dc4057a"},"first_name":"Lynn","last_name":"Thompson","username":"lynntfuzz","email":"lynninla@earthlink.net","password":"$2a$08$8fLe4GsyY/YgfEWBaC9AC.8FUGKnEPecyjUTYq03vuvMTh6ID1ghu","__v":0}
+{"_id":{"$oid":"5c5da23a6921127565017f62"},"first_name":"Generic","last_name":"User","username":"user","email":"xxx@yyy.zzz","password":"$2a$08$kX1D6BsSli0W1K0IzjFDn.CNpKkcMClIwdvsIxUN3V6fvOOLo6aLu","__v":0}
+{"_id":{"$oid":"5c62387f1123b829d8deb627"},"first_name":"Generic2","last_name":"User2","username":"user2","email":"xxx@yyy.zzz","password":"$2a$08$A7ibAUbCMwGM1vPS2wVwUuPgY6rh4JNA5fe7Fi/3wtNNaWJjCmZva","__v":0}

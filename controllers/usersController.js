@@ -3,6 +3,15 @@ const passport = require("passport");
 
 exports.findAll = function(req, res) {
   console.log("usersController.findAll");
+  User.find({})
+  .then(function(users) {
+    // If Users are successfully found, send them back to the client
+    res.json(users);
+  })
+  .catch(function(err) {
+    // If an error occurs, send the error back to the client
+    res.json(err);
+  });
 };
 
 // register a user

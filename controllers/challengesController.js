@@ -4,6 +4,7 @@ exports.findAll = function(req,res) {
     console.log("challengesController.findAll");
     Challenge.find({})
     .populate('toDoItems')
+    .populate('teamMembers')
     .then(function(dbChallenges) {
       // If Challenges are successfully found, send them back to the client
       res.json(dbChallenges);
@@ -16,22 +17,28 @@ exports.findAll = function(req,res) {
 
 exports.findOneByID = function(req,res) {
     console.log("challengesController.findOneById");
-    Challenge.findOne({ _id: req.params._id })
-        .populate('subjects')
+    console.log(req.params.id);
+    Challenge.findOne({ _id: req.params.id })
+        .populate('toDoItems')
+        .populate('teamMembers')
         .then(function(dbChallenge) {
             // If Challenges are successfully found, send them back to the client
+            console.log("found :");
+            console.log(dbChallenge); 
             res.json(dbChallenge);
         })
         .catch(function(err) {
+            console.log(err);
             // If an error occurs, send the error back to the client
             res.json(err);
-    })
+        })
 };
 
 exports.findOneByName = function(req,res) {
     console.log("challengesController.findOneByName");
     Challenge.findOne({ name: req.params.name })
         .populate('subjects')
+        .populate('teamMembers')
         .then(function(dbChallenge) {
             // If Challenges are successfully found, send them back to the client
             res.json(dbChallenge);
@@ -59,7 +66,7 @@ exports.updateChallenge = function(req,res) {
     Challenge.findByIdAndUpdate(req.params._id, req.body)
     .then(function(dbChallenge) {
         console.log(dbChallenge);
-        res.send({ success: true });
+        res.json(dbChallenge);
     })
     .catch(function(err) {
         console.log(err.message);

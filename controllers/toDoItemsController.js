@@ -47,7 +47,6 @@ exports.createToDoItem = function(req,res) {
       res.json(err);
     });
 };
-
 exports.updateToDoItem = function(req,res) {
     console.log("toDoItemsController.updatedbToDoItem");
     dbToDoItem.findByIdAndUpdate(rep.params._id, req.body)

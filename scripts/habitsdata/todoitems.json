@@ -1,0 +1,10 @@
+{"_id":{"$oid":"5c670b022d8da767660d0e21"},"name":"Sleep","description":"Sleep at least 7 hours each day.","challenge":{"$oid":"5c65039e14d17f55ca4dcfdf"},"__v":0}
+{"_id":{"$oid":"5c670b622d8da767660d0e22"},"name":"Exercise","description":"Walk at least 10 minutes a day.","challenge":{"$oid":"5c65039e14d17f55ca4dcfdf"},"__v":0}
+{"_id":{"$oid":"5c670b932d8da767660d0e23"},"name":"Eat Unprocessed Foods","description":"No sugary, processed foods.","challenge":{"$oid":"5c65039e14d17f55ca4dcfdf"},"__v":0}
+{"_id":{"$oid":"5c670bc42d8da767660d0e24"},"name":"Meditate","description":"Meditate at least 10 minutes a day.","challenge":{"$oid":"5c65039e14d17f55ca4dcfdf"},"__v":0}
+{"_id":{"$oid":"5c670bf62d8da767660d0e25"},"name":"Drink water","description":"Drink at least 32 oz. water a day.","challenge":{"$oid":"5c65039e14d17f55ca4dcfdf"},"__v":0}
+{"_id":{"$oid":"5c670e8d2d8da767660d0e27"},"name":"Pomodoro 1","description":"25 minutes of work","challenge":{"$oid":"5c670e682d8da767660d0e26"},"__v":0}
+{"_id":{"$oid":"5c670e9a2d8da767660d0e28"},"name":"Pomodoro 2","description":"25 minutes of work","challenge":{"$oid":"5c670e682d8da767660d0e26"},"__v":0}
+{"_id":{"$oid":"5c670eaf2d8da767660d0e29"},"name":"Pomodoro 3","description":"25 minutes of work","challenge":{"$oid":"5c670e682d8da767660d0e26"},"__v":0}
+{"_id":{"$oid":"5c670ed82d8da767660d0e2a"},"name":"Watch one YouTube Video","description":"About WebDev or topic currently learning","challenge":{"$oid":"5c670e682d8da767660d0e26"},"__v":0}
+{"_id":{"$oid":"5c670f1c2d8da767660d0e2b"},"name":"Work 10 minutes on career assets","description":"Edit/update Linked In, CV, GitHub","challenge":{"$oid":"5c670e682d8da767660d0e26"},"__v":0}
