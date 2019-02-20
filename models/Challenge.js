@@ -37,7 +37,7 @@ var challengeSchema = mongoose.Schema({
     
     // invitedMembers : [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
 
-    // confirmedMembers : [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+    teamMembers : [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
 
     // admin:{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 });

@@ -1,14 +1,8 @@
 import React, { Component } from "react";
 
 class ChallengeListView extends Component {
-   
-
-    componentDidMount() {
-        console.log("ChallengeListView.componentDidMount()");   
-    }
     
     render() {
-        console.log("ChallengeListView.render()");
         console.log(this.props.challenges);
         
         let challengeListItems = this.props.challenges.map((challenge) =>  {

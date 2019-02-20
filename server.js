@@ -8,7 +8,7 @@ var morgan  = require('morgan');
 const passport = require("./config/passport");
 
 // Define middleware here
-app.use(morgan('combined'));
+app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 

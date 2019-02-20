@@ -7,4 +7,7 @@ router.route("/")
   .put(challengesController.updateChallenge)
   .post(challengesController.createChallenge)
 
+router.route("/:id")
+  .get(challengesController.findOneByID)
+  
 module.exports = router;

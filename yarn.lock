@@ -2545,29 +2545,12 @@ react-dom@^16.8.1:
     prop-types "^15.6.2"
     scheduler "^0.13.1"
 
-react-event-listener@^0.6.2, react-event-listener@^0.6.4:
-  version "0.6.6"
-  resolved "https://registry.yarnpkg.com/react-event-listener/-/react-event-listener-0.6.6.tgz#758f7b991cad9086dd39fd29fad72127e1d8962a"
-  integrity sha512-+hCNqfy7o9wvO6UgjqFmBzARJS7qrNoda0VqzvOuioEpoEXKutiKuv92dSz6kP7rYLmyHPyYNLesi5t/aH1gfw==
-  dependencies:
-    "@babel/runtime" "^7.2.0"
-    prop-types "^15.6.0"
-    warning "^4.0.1"
-
-react-image-lightbox@5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/react-image-lightbox/-/react-image-lightbox-5.0.0.tgz#0c19aa8a43abf41262cbe082c779cc01f6334b5f"
-  integrity sha512-2ivXwbpGeknDYb0zkfdeitXUvHCIFjLH/sHEBRSQoEV7hxVIXYpeSZxAPL2hJYoyGxBWzbcbLw4uJXXuD11kOw==
-  dependencies:
-    prop-types "^15.6.1"
-    react-modal "^3.4.4"
-
-react-is@^16.6.3:
+react-is@^16.7.0:
   version "16.8.2"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.2.tgz#09891d324cad1cb0c1f2d91f70a71a4bee34df0f"
   integrity sha512-D+NxhSR2HUCjYky1q1DwpNUD44cDpUXzSmmFyC3ug1bClcU/iDNy0YNn1iwme28fn+NFhpA13IndOd42CrFb+Q==
 
-react-is@^16.7.0, react-is@^16.8.1:
+react-is@^16.8.1:
   version "16.8.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.1.tgz#a80141e246eb894824fb4f2901c0c50ef31d4cdb"
   integrity sha512-ioMCzVDWvCvKD8eeT+iukyWrBGrA3DiFYkXfBsVYIRdaREZuBjENG+KjrikavCLasozqRWTwFUagU/O4vPpRMA==
