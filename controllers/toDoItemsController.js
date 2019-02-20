@@ -1,5 +1,6 @@
 const ToDoItem = require('../models/ToDoItem');
 const Challenge = require('../models/Challenge');
+const CheckBoxRecord = require('../models/CheckBoxRecord');
 
 exports.findAll = function(req,res) {
     console.log("toDoItemController.findAll");
@@ -47,6 +48,7 @@ exports.createToDoItem = function(req,res) {
       res.json(err);
     });
 };
+
 exports.updateToDoItem = function(req,res) {
     console.log("toDoItemsController.updatedbToDoItem");
     dbToDoItem.findByIdAndUpdate(rep.params._id, req.body)
@@ -58,6 +60,31 @@ exports.updateToDoItem = function(req,res) {
     .catch(function(err) {
         console.log(err.message);
     });  
+};
+
+
+// This is under construction and does not work right yet. 
+// I am trying to figure out how to add a CheckBoxRecord. 
+exports.createCheckBoxRecord = function(req,res) {
+    console.log("toDoItemsController.createCheckBoxRecord");
+    console.log(req.body);
+    CheckBoxRecord.create(req.body)
+    .then(function(dbCheckBoxRecord) {
+        console.log("saved check box record ==============> ");
+        console.log(dbCheckBoxRecord);
+        console.log("<========================");
+        return ToDoItem.findOneAndUpdate({_id: dbCheckBoxRecord.toDoItem}, { $push: { checkBoxRecords: dbCheckBoxRecord._id } }, { new: true });
+    })
+    .then(function(toDoItem) {
+      // If the ToDoItem was updated successfully, send it back to the client
+      console.log(toDoItem);
+      res.json(toDoItem);
+    })
+    .catch(function(err) {
+      // If an error occurs, send it back to the client
+      console.log(err);
+      res.json(err);
+    });
 };
   
   

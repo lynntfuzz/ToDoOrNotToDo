@@ -6,4 +6,7 @@ router.route("/")
   .get(toDoItemsController.findAll)
   .post(toDoItemsController.createToDoItem)
 
+// Matches with "/api/toDoItems/checkBoxRecord"
+router.route("/checkBoxRecord")
+  .post(toDoItemsController.createCheckBoxRecord);
 module.exports = router;

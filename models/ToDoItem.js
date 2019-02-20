@@ -21,6 +21,9 @@ var toDoItemSchema = mongoose.Schema({
     // each to do item belongs to a challenge
     challenge : { type: mongoose.Schema.Types.ObjectId, ref: 'Challenge' },
 
+    checkBoxRecords : [{type: mongoose.Schema.Types.ObjectId, ref: 'CheckBoxRecord'}]
+
+
 });
 
 // create the model for ToDoItems and expose it to our app

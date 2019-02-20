@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { Container, Col, Row, Label, FormGroup, Form, Input, Button} from "reactstrap";
+import { Container, Col, Row, Label, FormGroup, Form, Input} from "reactstrap";
 import Navbar from '../components/navbar';
 import axios from 'axios'; 
 import ToDoListView from '../components/ToDoListView';
 import TeamListView from '../components/TeamListView';
+import CheckboxGridView from '../components/CheckboxGridView';
 
 class ChallengePage extends Component {
     constructor(props) {
@@ -17,19 +18,28 @@ class ChallengePage extends Component {
     componentDidMount() {
         console.log("ChallengePage.componentDidMount()");
         axios.get('/api/challenges')
-        .then(function (data) {
-            //console.log(data.data);
+        .then((data) => {
             this.setState({challenges: data.data});
             if (this.state.challenges.length > 0) {
                 this.setState({selectedChallenge: this.state.challenges[0]})
             }
-        }.bind(this)).catch(function (err) {
-            console.log(err);
-      });
+        })
+        .then (() => {
+
+            if (this.state.selectedChallenge.toDoItems && this.state.selectedChallenge.toDoItems.length > 0) {
+                    
+                let newCheckBoxRecord = {
+                    toDoItem: this.state.selectedChallenge.toDoItems[0]._id,
+                    user: "5c5d4a3b1ba9866b9dc4057a",
+                    date: "2019-02-19",
+                    completed: "false"
+                }
+                axios.post('/api/toDoItems/checkBoxRecord', newCheckBoxRecord);
+                } else console.log("no to Do List items")
+        })
     }
+
     setSelectedChallenge = newChallenge =>  {
-        console.log("ChallengePage.selectChallenge()"); 
-        console.log(newChallenge);
         this.setState({selectedChallenge: newChallenge});
     }
 
@@ -48,9 +58,6 @@ class ChallengePage extends Component {
             description : "Edit/update Linked In, CV, GitHub",
             challenge: challenge._id
         }
-
-
-       //console.log(toDoItem);
         
         axios.post('/api/toDoItems', toDoItem)
             .then(function (response) {
@@ -84,8 +91,6 @@ class ChallengePage extends Component {
                 console.log("challenge 2 = ");
                 console.log(challenge);
                 users.data.map((user, challenge) => {
-                    console.log("Adding user " + user.first_name + " " + "to challenge ");
-                    console.log(challenge);
                     return challenge.teamMembers.push(user);
                 })
                 // Now save the challenge to the db (with the teammembers added) 
@@ -98,10 +103,6 @@ class ChallengePage extends Component {
             })
         }
         
-   
-    
-
-
     render() {
 
         return <div>
@@ -115,46 +116,46 @@ class ChallengePage extends Component {
                     />  
             <Container>
                 
-                    <h1>{this.state.selectedChallenge.name}</h1>
-                    <Row>
+                <h1>{this.state.selectedChallenge.name}</h1>
+                <Row>
                     <Col med="10">.
                     <Form>
-            <FormGroup row>
-            <Label for="name" sm={2}>Name</Label>
-            <Col sm={10}>
-                <Input type="name" name="name" id="name" placeholder="name" value={this.state.selectedChallenge.name}/>
-            </Col>
-            </FormGroup>
-            <FormGroup row>
-            <Label for="startdate" sm={2}>Start Date</Label>
-            <Col sm={10}>
-                <Input type="date" name="startdate" id="startdate"  value={this.formatDate(this.state.selectedChallenge.startdate)}/>
-            </Col>
-            </FormGroup>
-            <FormGroup row>
-            <Label for="enddate" sm={2}>End Date</Label>
-            <Col sm={10}>
-                <Input type="date" name="enddate" id="enddate"  value={this.formatDate(this.state.selectedChallenge.enddate)} />
-            </Col>
-            </FormGroup>
-            {/* <FormGroup row>
-                <Label for="isopencheck" sm={2}>Open to participants?</Label>
-                <Col sm={10}>
-                    <Input type="checkbox" name="isopencheck" value={this.state.selectedChallenge.isOpen}/> 
-                </Col>      
-            </FormGroup> */}
-      
+                        <FormGroup row>
+                            <Label for="name" sm={2}>Name</Label>
+                            <Col sm={10}>
+                                <Input type="name" name="name" id="name" placeholder="name" value={this.state.selectedChallenge.name}/>
+                            </Col>
+                        </FormGroup>
+
+                        <FormGroup row>
+                            <Label for="startdate" sm={2}>Start Date:</Label>
+                            <Col sm={10}>
+                                <Input type="date" name="startdate" id="startdate"  value={this.formatDate(this.state.selectedChallenge.startdate)}/>
+                            </Col>
+                        </FormGroup>
+
+                        <FormGroup row>
+                            <Label for="enddate" sm={2}>End Date:</Label>
+                            <Col sm={10}>
+                                <Input type="date" name="enddate" id="enddate"  value={this.formatDate(this.state.selectedChallenge.enddate)} />
+                            </Col>
+                        </FormGroup>
+
+                        {/* <FormGroup row>
+                            <Label for="isopencheck" sm={2}>Open to participants?</Label>
+                            <Col sm={10}>
+                                <Input type="checkbox" name="isopencheck" value={this.state.selectedChallenge.isOpen}/> 
+                            </Col>      
+                        </FormGroup> */}
+
+                    </Form>
+
             <ToDoListView toDoItems={this.state.selectedChallenge.toDoItems}/>  
             <TeamListView teamMembers={this.state.selectedChallenge.teamMembers}/>
+            <CheckboxGridView toDoItems={this.state.selectedChallenge.toDoItems}/>
             
-            <FormGroup check row>
-                <Col sm={{ size: 10, offset: 2 }}>
-                    {/* <Button onClick={() => this.doAddNewToDoItem(this.state.selectedChallenge)}>Add New To Do Item</Button> */}
-                    {/* <Button onClick={() => this.testAddingMembersToTeam(this.state.selectedChallenge)}>Test Adding Team Member</Button> */}
-
-                </Col>
-                </FormGroup>
-            </Form>
+           
+            
 
                     </Col>
                 </Row>
