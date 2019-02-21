@@ -33,12 +33,11 @@ var challengeSchema = mongoose.Schema({
     },
 
     toDoItems : [{type: mongoose.Schema.Types.ObjectId, ref: 'ToDoItem'}],
-   
     
-    // invitedMembers : [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
-
     teamMembers : [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
 
+    // Really we should just have one Admin who can edit things. Or maybe a list of
+    // Admins. But nobody ain't got no time for that.
     // admin:{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 });
 

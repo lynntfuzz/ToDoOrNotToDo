@@ -1,5 +1,6 @@
 const ToDoItem = require('../models/ToDoItem');
 const Challenge = require('../models/Challenge');
+const CheckBoxRecord = require('../models/CheckBoxRecord');
 
 exports.findAll = function(req,res) {
     console.log("toDoItemController.findAll");
@@ -16,16 +17,7 @@ exports.findAll = function(req,res) {
 
 exports.createToDoItem = function(req,res) {
     console.log("toDoItemsController.createToDoItem");
-    // ToDoItem.create(req.body)
-    // .then(function(dbToDoItem) {
-    //     console.log(dbToDoItem);
-    //     res.json(dbToDoItem);
-    //     //res.send({ success: true });
-    // })
-    // .catch(function(err) {
-    //     console.log(err.message);
-    // });  
-    console.log("toDoItemsController.createToDoItem()");
+ 
     ToDoItem.create(req.body)
     .then(function(dbToDoItem) {
         console.log("saved to do item ==============> ");
@@ -34,7 +26,7 @@ exports.createToDoItem = function(req,res) {
       // If a Note was created successfully, find one User (there's only one) and push the new Note's _id to the User's `notes` array
       // { new: true } tells the query that we want it to return the updated User -- it returns the original by default
       // Since our mongoose query returns a promise, we can chain another `.then` which receives the result of the query
-      return Challenge.findOneAndUpdate({_id: dbToDoItem.challenge._id}, { $push: { toDoItems: dbToDoItem._id } }, { new: true });
+      return Challenge.findOneAndUpdate({_id: dbToDoItem.challenge}, { $push: { toDoItems: dbToDoItem._id } }, { new: true });
     })
     .then(function(challenge) {
       // If the User was updated successfully, send it back to the client
@@ -47,6 +39,7 @@ exports.createToDoItem = function(req,res) {
       res.json(err);
     });
 };
+
 exports.updateToDoItem = function(req,res) {
     console.log("toDoItemsController.updatedbToDoItem");
     dbToDoItem.findByIdAndUpdate(rep.params._id, req.body)
@@ -59,5 +52,48 @@ exports.updateToDoItem = function(req,res) {
         console.log(err.message);
     });  
 };
+
+
+// This is under construction and does not work right yet. 
+// I am trying to figure out how to add a CheckBoxRecord. 
+exports.createCheckBoxRecord = function(req,res) {
+    console.log("toDoItemsController.createCheckBoxRecord");
+    console.log(req.body);
+    CheckBoxRecord.create(req.body)
+    .then(function(dbCheckBoxRecord) {
+        console.log("saved check box record ==============> ");
+        console.log(dbCheckBoxRecord);
+        console.log("<========================");
+        return ToDoItem.findOneAndUpdate({_id: dbCheckBoxRecord.toDoItem}, { $push: { checkBoxRecords: dbCheckBoxRecord._id } }, { new: true });
+    })
+    .then(function(toDoItem) {
+      // If the ToDoItem was updated successfully, send it back to the client
+      console.log(toDoItem);
+      res.json(toDoItem);
+    })
+    .catch(function(err) {
+      // If an error occurs, send it back to the client
+      console.log(err);
+      res.json(err);
+    });
+};
+
+
+exports.getCheckBoxRecords = function(req,res)  {
+    console.log("toDoItemsController.getCheckBoxRecords()")
+    console.log("challengeid = " + req.params.challengeid );
+    console.log("user = " + req.params.userid)
+    CheckBoxRecord.find( { 
+        challengeId: req.params.challengeid,
+        user: req.params.userid
+    })
+    .populate("toDoItem")
+    .sort({date: 1})
+    .then((result) => {
+        console.log(result);
+        res.json(result);
+    })  
+    // req.param.userid req.param.challengeid
+}
   
   
