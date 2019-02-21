@@ -5,6 +5,7 @@ import Jumbotron from "../components/Jumbotron";
 import { Input, FormBtn } from "../components/Form";
 import { Redirect } from 'react-router';
 import Nav from "../components/navbar";
+import FooterPage from '../components/footer';
 
 class SignUp extends Component {
   state = {
@@ -111,6 +112,7 @@ class SignUp extends Component {
           </Col>
         </Row>
       </Container>
+      <FooterPage />
     </div>
     );
 
