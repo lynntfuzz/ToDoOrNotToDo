@@ -37,8 +37,8 @@ exports.signUpUser = function(req, res) {
       // save the user
       newUser
         .save()
-        .then(function() {
-          res.send({ success: true });
+        .then(function(dbUser) {
+          res.json(newUser);
         })
         .catch(function(err) {
           res.json(err);

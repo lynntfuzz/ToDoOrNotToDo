@@ -4,7 +4,10 @@ exports.findAll = function(req,res) {
     console.log("challengesController.findAll");
     Challenge.find({})
     .populate('toDoItems')
+    //.populate("toDoItems.checkBoxRecords")
+    .populate("toDoItems.user")
     .populate('teamMembers')
+    
     .then(function(dbChallenges) {
       // If Challenges are successfully found, send them back to the client
       res.json(dbChallenges);
@@ -54,7 +57,7 @@ exports.createChallenge = function(req,res) {
     Challenge.create(req.body)
     .then(function(dbChallenge) {
         console.log(dbChallenge);
-        res.send({ success: true });
+        res.json(dbChallenge);
     })
     .catch(function(err) {
         console.log(err.message);
