@@ -4,7 +4,9 @@ import Navbar from '../components/navbar';
 import axios from 'axios'; 
 import ToDoListView from '../components/ToDoListView';
 import TeamListView from '../components/TeamListView';
-
+import ModalButton from '../components/Buttons/Button';
+import FooterPage from '../components/footer';
+import { Jumbotron } from "mdbreact";
 class ChallengePage extends Component {
     constructor(props) {
         super(props);
@@ -113,6 +115,11 @@ class ChallengePage extends Component {
                     challenges={this.state.challenges}
                     setSelectedChallenge={this.setSelectedChallenge}
                     />  
+            <Jumbotron>  
+            <h1 className="display-4">Hello Habitrons</h1>
+            <p className="lead">Challenge your friends to see who can improve their habits.</p>
+            <hr className="my-2" />
+            </Jumbotron>
             <Container>
                 
                     <h1>{this.state.selectedChallenge.name}</h1>
@@ -159,6 +166,8 @@ class ChallengePage extends Component {
                     </Col>
                 </Row>
             </Container>
+            <ModalButton />
+            <FooterPage />
         </div>;
     }
 }
