@@ -27,16 +27,17 @@ class ChallengePage extends Component {
         })
         .then (() => {
 
-            if (this.state.selectedChallenge.toDoItems && this.state.selectedChallenge.toDoItems.length > 0) {
+        //     if (this.state.selectedChallenge.toDoItems && this.state.selectedChallenge.toDoItems.length > 0) {
                     
-                let newCheckBoxRecord = {
-                    toDoItem: this.state.selectedChallenge.toDoItems[0]._id,
-                    user: "5c5d4a3b1ba9866b9dc4057a",
-                    date: "2019-02-19",
-                    completed: "false"
-                }
-                axios.post('/api/toDoItems/checkBoxRecord', newCheckBoxRecord);
-                } else console.log("no to Do List items")
+        //         let newCheckBoxRecord = {
+        //             toDoItem: this.state.selectedChallenge.toDoItems[0]._id,
+        //             user: "5c5d4a3b1ba9866b9dc4057a",
+        //             date: "2019-02-19",
+        //             completed: "false"
+        //         }
+        //         axios.post('/api/toDoItems/checkBoxRecord', newCheckBoxRecord);
+        //         } else console.log("no to Do List items")
+        // 
         })
     }
 
@@ -174,8 +175,9 @@ class ChallengePage extends Component {
                                         console.log("Is start date (" + freshChallenge.startdate + ") before end (" + freshChallenge.enddate+ ") date? ");
                                         console.log(Moment(freshChallenge.data.startdate).isBefore(Moment(freshChallenge.data.enddate)));
                                         let date = Moment(freshChallenge.data.startdate);
-                                        while (date.isBefore(Moment(freshChallenge.data.enddate).add(1, 'day'))) { 
+                                        while (date.isBefore(Moment(freshChallenge.data.enddate))) { 
                                             let checkBoxRecord = {
+                                                challengeId: freshChallenge.data._id,
                                                 toDoItem: toDoItem._id,
                                                 user: dbUser.data._id,
                                                 date: date,
@@ -260,7 +262,7 @@ class ChallengePage extends Component {
 
             <ToDoListView toDoItems={this.state.selectedChallenge.toDoItems}/>  
             <TeamListView teamMembers={this.state.selectedChallenge.teamMembers}/>
-            <CheckboxGridView challenge={this.state.selectedChallenge}/>
+            {/* <CheckboxGridView challenge={this.state.selectedChallenge}/> */}
             
            
             

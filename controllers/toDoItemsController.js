@@ -77,5 +77,23 @@ exports.createCheckBoxRecord = function(req,res) {
       res.json(err);
     });
 };
+
+
+exports.getCheckBoxRecords = function(req,res)  {
+    console.log("toDoItemsController.getCheckBoxRecords()")
+    console.log("challengeid = " + req.params.challengeid );
+    console.log("user = " + req.params.userid)
+    CheckBoxRecord.find( { 
+        challengeId: req.params.challengeid,
+        user: req.params.userid
+    })
+    .populate("toDoItem")
+    .sort({date: 1})
+    .then((result) => {
+        console.log(result);
+        res.json(result);
+    })  
+    // req.param.userid req.param.challengeid
+}
   
   

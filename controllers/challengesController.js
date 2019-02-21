@@ -7,7 +7,7 @@ exports.findAll = function(req,res) {
     //.populate("toDoItems.checkBoxRecords")
     .populate("toDoItems.user")
     .populate('teamMembers')
-    
+    .populate('toDoItems.checkBoxRecords')
     .then(function(dbChallenges) {
       // If Challenges are successfully found, send them back to the client
       res.json(dbChallenges);

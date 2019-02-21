@@ -8,6 +8,11 @@ var mongoose = require('mongoose');
 // For example user x completed to do item y on date z
 var checkBoxRecordSchema = mongoose.Schema({
 
+    challengeId: {
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Challenge'
+    },
+
     toDoItem: { 
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'ToDoItem',  
