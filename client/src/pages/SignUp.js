@@ -4,7 +4,7 @@ import { Container, Col, Row } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import { Input, FormBtn } from "../components/Form";
 import { Redirect } from 'react-router';
-import Nav from "../components/navbar";
+// import Nav from "../components/navbar";
 import FooterPage from '../components/footer';
 
 class SignUp extends Component {
@@ -48,12 +48,12 @@ class SignUp extends Component {
   render() {
     return (
       <div>
-        <Nav
+        {/* <Nav
           authenticated={this.props.authenticated}
           authenticate={this.props.authenticate}
           deAuthenticate={this.props.deAuthenticate}
           logout={this.props.logout}
-        />
+        /> */}
      
    
       <Container fluid>
