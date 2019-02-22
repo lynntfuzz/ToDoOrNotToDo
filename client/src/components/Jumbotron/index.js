@@ -4,7 +4,7 @@ function Jumbotron({ children }) {
   return (
     <div
       style={{ height: 250, clear: "both", paddingTop: 10, textAlign: "center" }}
-      className="jumbotron"
+      className="jumbotron" 
     >
       {children}
     </div>
