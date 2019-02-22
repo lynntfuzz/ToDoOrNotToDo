@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
-import Nav from './navbar'
+// import Nav from './navbar'
 
 // require('./login.css');
 
@@ -44,7 +44,7 @@ export default class Login extends Component {
             redirectToReferrer: true
           });
         } else {
-          alert(data.data.message);
+          console.log(data.data.message);
         }
       }.bind(this)).catch(function (err) {
         console.log(err);
@@ -86,12 +86,12 @@ export default class Login extends Component {
 
     return (
       <div>
-        <Nav
+        {/* <Nav
           authenticated={this.props.authenticated}
           authenticate={this.props.authenticate}
           deAuthenticate={this.props.deAuthenticate}
           logout={this.props.logout}
-        />
+        /> */}
         <div className="loginmodal-container">
           <h1 className="">Log In to Your Account</h1><br />
           <form className="login" onSubmit={this.handleSubmit.bind(this)}>
