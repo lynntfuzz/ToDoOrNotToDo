@@ -8,9 +8,14 @@ router.route("/")
 
 // Matches with "/api/toDoItems/checkBoxRecord"
 router.route("/checkBoxRecord")
-  .post(toDoItemsController.createCheckBoxRecord);
+  .post(toDoItemsController.createCheckBoxRecord)
+  .put(toDoItemsController.editCheckBoxRecord); 
 
-  router.route("/checkBoxRecords/:userid/:challengeid")
-  .get(toDoItemsController.getCheckBoxRecords);  
+
+
+
+// Matches with "/api/toDoItems/checkBoxRecord"
+router.route("/checkBoxRecord/:userid/:challengeid")
+.get(toDoItemsController.getCheckBoxRecords);  
   
 module.exports = router;

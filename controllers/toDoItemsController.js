@@ -77,7 +77,23 @@ exports.createCheckBoxRecord = function(req,res) {
       res.json(err);
     });
 };
-
+ exports.editCheckBoxRecord = function(req, res) {
+    console.log("toDoItemsController.updateCheckBoxRecord");
+    console.log(req.body);
+    CheckBoxRecord.updateOne({_id: req.body._id}, {completed: req.body.completed})
+    .then(function(dbCheckBoxRecord) {
+        console.log("saved check box record ==============> ");
+        console.log(dbCheckBoxRecord);
+        console.log("<========================");
+        res.json(dbCheckBoxRecord);
+        //return ToDoItem.findOneAndUpdate({_id: dbCheckBoxRecord.toDoItem}, { $push: { checkBoxRecords: dbCheckBoxRecord._id } }, { new: true });
+    })
+    .catch(function(err) {
+      // If an error occurs, send it back to the client
+      console.log(err);
+      res.json(err);
+    });
+ }
 
 exports.getCheckBoxRecords = function(req,res)  {
     console.log("toDoItemsController.getCheckBoxRecords()")
@@ -88,12 +104,12 @@ exports.getCheckBoxRecords = function(req,res)  {
         user: req.params.userid
     })
     .populate("toDoItem")
+    .select('date completed toDoItems.name')
     .sort({date: 1})
     .then((result) => {
         console.log(result);
         res.json(result);
     })  
-    // req.param.userid req.param.challengeid
 }
   
   
