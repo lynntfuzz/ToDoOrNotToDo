@@ -35,7 +35,7 @@ class Rows extends Component {
                     }
                     let completed = cbr.completed ? true : false;
                     //return <td>{completed}</td>
-                   return <td><input type="checkbox" key={cbr._id} data-value={cbr._id}  checked={completed} onClick={this.props.clickHandler}/></td>
+                   return <td><input type="checkbox"  data-value={cbr._id}  checked={completed} onClick={this.props.clickHandler}/></td>
                 });
 
                 return ( 

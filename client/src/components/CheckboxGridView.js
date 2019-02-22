@@ -105,7 +105,7 @@ class CheckboxGridView extends Component {
         .then(results => {
             console.log(results);
         })
-        this.forceUpdate();
+        
     }
   
     render() {
