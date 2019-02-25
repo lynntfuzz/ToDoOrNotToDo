@@ -59,19 +59,19 @@ class SignUp extends Component {
                 value={this.state.first_name}
                 onChange={this.handleInputChange}
                 name="first_name"
-                placeholder="John (required)"
+                placeholder="First Name (required)"
               />
               <Input
                 value={this.state.last_name}
                 onChange={this.handleInputChange}
                 name="last_name"
-                placeholder="Wick (required)"
+                placeholder="Last Name (required)"
               />
               <Input
                 value={this.state.user_name}
                 onChange={this.handleInputChange}
                 name="username"
-                placeholder="johnwick (required)"
+                placeholder="User Name (required)"
               />
               <Input
                 value={this.state.password}
@@ -84,7 +84,7 @@ class SignUp extends Component {
                 value={this.state.email}
                 onChange={this.handleInputChange}
                 name="email"
-                placeholder="john.wick@gmail.com (required)"
+                placeholder="Email (required)"
                 type = "email"
               />
 

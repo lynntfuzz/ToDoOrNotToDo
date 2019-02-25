@@ -4,13 +4,13 @@ import Navbar from '../components/navbar';
 import axios from 'axios'; 
 import ToDoListView from '../components/ToDoListView';
 import TeamListView from '../components/TeamListView';
-import ModalButton from '../components/Buttons/Button';
 import FooterPage from '../components/footer';
-import { Jumbotron } from "mdbreact";
+// import { Jumbotron } from "mdbreact";
 import CheckboxGridView from '../components/CheckboxGridView';
 import Moment from 'moment';
 import CheckBoxApp from '../components/CheckBoxes/CheckBoxApp';
 import NewChallengeModal from '../components/ChallengeModal2.js';
+import Jumbotron from '../components/Jumbotron';
 
 
 class ChallengePage extends Component {
@@ -160,9 +160,11 @@ class ChallengePage extends Component {
         console.log(this.props.currentUser);
         return <div>
             <Jumbotron>
+
             <h1 className="display-4">Hello Habitron{this.props.authenticated ? (" " + this.props.currentUser.first_name + " " + this.props.currentUser.last_name) : ("s")}</h1>
             <p className="lead">Challenge your friends to see who can improve their habits.</p>
             <hr className="my-2" />
+
             </Jumbotron>
             
             <Container>
