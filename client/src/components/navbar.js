@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {Link} from 'react';
 import axios from 'axios'; 
-import { Nav, NavItem, Dropdown, DropdownItem, DropdownToggle, DropdownMenu, NavLink} from 'reactstrap'   
+import { Nav, NavItem, Dropdown, DropdownItem, DropdownToggle, DropdownMenu, NavLink, Button} from 'reactstrap'   
 require('./navbar.css')
 
 
@@ -14,7 +14,6 @@ export default class Navigation extends React.Component {
     };
   }
 
-
   toggle() {
     this.setState({
       dropdownOpen: !this.state.dropdownOpen
@@ -22,6 +21,7 @@ export default class Navigation extends React.Component {
   }
 
   render() {
+    console.log("Is authenticated? " + this.props.authenticated);
     return (
       <div>
         <Nav tabs>
@@ -34,24 +34,20 @@ export default class Navigation extends React.Component {
             </DropdownToggle>
             <DropdownMenu>
               {this.props.challenges.map((challenge, index) => {
-                console.log(challenge);
-                    return <DropdownItem key={index} >
-                    <span onClick={ (e) => this.props.setSelectedChallenge(challenge)}>{challenge.name}</span>
-                    </DropdownItem>;
+                return <NavLink href="/" onClick={ (e) => this.props.setSelectedChallenge(challenge)}>{challenge.name}</NavLink>
               })}
             </DropdownMenu> 
           </Dropdown>
           <NavItem>
-            <NavLink href="#">Calendar</NavLink>
-          </NavItem>
-          {/* <NavItem>
-            <NavLink href="/challenge">My Challenges</NavLink>
-          </NavItem> */}
-          <NavItem>
             <NavLink href="/signup">Register</NavLink>
           </NavItem>
           <NavItem>
+          {this.props.authenticated ? (
+            <NavLink href="/" onClick={this.props.logout}>Logout</NavLink>
+           
+          ) : (
             <NavLink href="/login">Login</NavLink>
+          )}
           </NavItem>
         </Nav>
       </div>

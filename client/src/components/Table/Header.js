@@ -14,7 +14,7 @@ class Header extends Component {
             let currentDate = startdate;
             days.push(<th key="header">Task</th>);
             while (currentDate.isBefore(enddate)) {
-                days.push(<th key={"header-"+currentDate.format("M/D")}>{currentDate.format("M/D")}</th>);
+                days.push(<th key={"header-"+currentDate.format("M/D")}  className="text-left">{currentDate.format("M/D")}</th>);
                 currentDate.add(1, 'days');
             }
         } 

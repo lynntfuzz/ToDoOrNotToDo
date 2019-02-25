@@ -14,37 +14,31 @@ import NewChallengeModal from '../components/ChallengeModal2.js';
 
 
 class ChallengePage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { 
-            challenges: [], 
-            selectedChallenge: {}
-            //checkBoxRecords: []
-        } 
+    // constructor(props) {
+    //     super(props);
+    //     this.state = { 
+    //         challenges: [], 
+    //         selectedChallenge: {}
+    //     } 
         
-    }
+    // }
 
-    componentDidMount() {
-        axios.get('/api/challenges')
-        .then((data) => {
-            this.setState({challenges: data.data});
-            if (this.state.challenges.length > 0) {
-                this.setState({selectedChallenge: this.state.challenges[0]});
-                // // hard coded to user John Snow, must be reset with each new database, eventually to be
-                // // replaced with current user when current user is signed in.
-                // axios.get('/api/toDoItems/checkBoxRecord/'+ "5c6e05877d8f781cfd8542db" + "/" + this.state.selectedChallenge._id )
-                // .then(cbrs => this.setState({checkBoxRecords: cbrs.data}));
-            }
+    // componentDidMount() {
+    //     axios.get('/api/challenges')
+    //     .then((data) => {
+    //         this.setState({challenges: data.data});
+    //         if (this.state.challenges.length > 0) {
+    //             this.setState({selectedChallenge: this.state.challenges[0]});
+    //         }
             
-        })
-        
-          
-    }
+    //     })
+                 
+    // }
 
-    setSelectedChallenge = newChallenge =>  {
-        console.log(newChallenge);
-        this.setState({selectedChallenge: newChallenge});
-    }
+    // setSelectedChallenge = newChallenge =>  {
+    //     console.log(newChallenge);
+    //     this.setState({selectedChallenge: newChallenge});
+    // }
 
     formatDate(d) {
         if (!d) return "";
@@ -158,21 +152,15 @@ class ChallengePage extends Component {
             })
         })
     }
+    
         
     render() {
-        
-
+        console.log("in Challenge page, is authenticated? " + this.props.authenticated);
+        console.log("in ChallengePage user ="  );
+        console.log(this.props.currentUser);
         return <div>
-            <Navbar authenticated={this.props.authenticated}
-                    authenticate={this.props.authenticate}
-                    deAuthenticate={this.props.deAuthenticate}
-                    logout={this.props.logout}
-                    selectedChallenge={this.state.selectedChallenge}
-                    challenges={this.state.challenges}
-                    setSelectedChallenge={this.setSelectedChallenge}
-                    />  
             <Jumbotron>
-           <h1 className="display-4">Hello Habitrons</h1>
+            <h1 className="display-4">Hello Habitron{this.props.authenticated ? (" " + this.props.currentUser.first_name + " " + this.props.currentUser.last_name) : ("s")}</h1>
             <p className="lead">Challenge your friends to see who can improve their habits.</p>
             <hr className="my-2" />
             </Jumbotron>
@@ -180,46 +168,8 @@ class ChallengePage extends Component {
             <Container>
                 {/* <p>Make sure your habits database is empty by typing db.todoitems.drop(); db.challenges.drop(), db.checkboxrecords.drop() in your mongo shell. Don't worry about user collection. Only press this button once or you will get duplicates.</p>
                 <Button onClick={this.seedDatabase}>Seed Database</Button> */}
-                <h1>{this.state.selectedChallenge.name}</h1>
-                {/* <Row>
-                    <Col med="10">.
-                    <Form>
-                        <FormGroup row>
-                            <Label for="name" sm={2}>Name</Label>
-                            <Col sm={10}>
-                                <Input type="name" name="name" id="name" placeholder="name" value={this.state.selectedChallenge.name}/>
-                            </Col>
-                        </FormGroup>
-
-                        <FormGroup row>
-                            <Label for="startdate" sm={2}>Start Date:</Label>
-                            <Col sm={10}>
-                                <Input type="date" name="startdate" id="startdate"  value={this.formatDate(this.state.selectedChallenge.startdate)}/>
-                            </Col>
-                        </FormGroup>
-
-                        <FormGroup row>
-                            <Label for="enddate" sm={2}>End Date:</Label>
-                            <Col sm={10}>
-                                <Input type="date" name="enddate" id="enddate"  value={this.formatDate(this.state.selectedChallenge.enddate)} />
-                            </Col>
-                        </FormGroup>
-
-                        <FormGroup row>
-                            <Label for="isopencheck" sm={2}>Open to participants?</Label>
-                            <Col sm={10}>
-                                <Input type="checkbox" name="isopencheck" value={this.state.selectedChallenge.isOpen}/> 
-                            </Col>      
-                        </FormGroup>
-
-                    </Form> 
-
-            <ToDoListView toDoItems={this.state.selectedChallenge.toDoItems}/>  
-            <TeamListView teamMembers={this.state.selectedChallenge.teamMembers}/>
-            {/* <CheckboxGridView challenge={this.state.selectedChallenge}/> */}
-                    
-               
-                <CheckboxGridView challenge={this.state.selectedChallenge}/>
+                <h1>{this.props.selectedChallenge.name}</h1> 
+                <CheckboxGridView challenge={this.props.selectedChallenge} setSelectedChallenge={this.props.setSelectedChallenge}/>
             </Container>
             
             <NewChallengeModal/>

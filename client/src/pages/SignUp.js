@@ -48,14 +48,6 @@ class SignUp extends Component {
   render() {
     return (
       <div>
-        {/* <Nav
-          authenticated={this.props.authenticated}
-          authenticate={this.props.authenticate}
-          deAuthenticate={this.props.deAuthenticate}
-          logout={this.props.logout}
-        /> */}
-     
-   
       <Container fluid>
         <Row>
           <Col size="md-6">
