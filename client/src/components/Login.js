@@ -40,6 +40,7 @@ export default class Login extends Component {
         console.log(data.data);
         if (data.data.success) {
           this.props.authenticate();
+          this.props.setCurrentUser(data.data.user);
           this.setState({
             redirectToReferrer: true
           });
@@ -71,7 +72,6 @@ export default class Login extends Component {
     }
     // If we have an email and password we run the loginUser function and clear the form
     this.loginUser(objSubmit);
-    this.props.history.push('/');
   }
 
   render() {
@@ -86,12 +86,6 @@ export default class Login extends Component {
 
     return (
       <div>
-        {/* <Nav
-          authenticated={this.props.authenticated}
-          authenticate={this.props.authenticate}
-          deAuthenticate={this.props.deAuthenticate}
-          logout={this.props.logout}
-        /> */}
         <div className="loginmodal-container">
           <h1 className="">Log In to Your Account</h1><br />
           <form className="login" onSubmit={this.handleSubmit.bind(this)}>

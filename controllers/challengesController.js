@@ -13,61 +13,82 @@ exports.findAll = function(req,res) {
         model: 'CheckBoxRecord'
         }
     })
-
-
-    .populate('teamMembers')
-    //.populate('toDoItems')     
-    .then(function(dbChallenges) {
-        // dbChallenges.forEach(challenge => {
-        //     challenge.toDoItems.forEach(toDoItem => {
-
-        //         CheckBoxRecord.populate(toDoItem,{
-        //             path:'toDoItem.checkBoxRecords'
-        //         },function(err,challenge){
-        //            //mains[0].subs[0].members - is not empty
-        //         });
-
-        //     })
-       
+    .populate('teamMembers')  
+    .then(function(dbChallenges) {  
         res.json(dbChallenges)
     })
-    //    res.json(dbChallenges)
-        
-    }
+    .catch(function(err) {
+        // If an error occurs, send the error back to the client
+        res.json(err);
+    })
+     
+}
 
 
 exports.findOneByID = function(req,res) {
     console.log("challengesController.findOneById");
     console.log(req.params.id);
     Challenge.findOne({ _id: req.params.id })
-        .populate('toDoItems')
-        .populate('teamMembers')
-        .populate("toDoItems.checkBoxItems")
-        .then(function(dbChallenge) {
-            // If Challenges are successfully found, send them back to the client
-            console.log("found :");
-            console.log(dbChallenge); 
-            res.json(dbChallenge);
-        })
-        .catch(function(err) {
-            console.log(err);
-            // If an error occurs, send the error back to the client
-            res.json(err);
-        })
+    .populate({
+        path: 'toDoItems',
+        model: 'ToDoItem',
+        populate: {
+        path: 'checkBoxRecords',
+        model: 'CheckBoxRecord'
+        }
+    })
+    .populate('teamMembers')  
+    .then(function(dbChallenges) {  
+        res.json(dbChallenges)
+    })
+    .catch(function(err) {
+        console.log(err);
+        // If an error occurs, send the error back to the client
+        res.json(err);
+    })
+};
+
+exports.findAllByUserID =  function(req,res) {
+    console.log("challengesController.findOneById");
+    console.log(req.params.id);
+    Challenge.find({ teamMembers:  req.params.userid })
+    .populate({
+        path: 'toDoItems',
+        model: 'ToDoItem',
+        populate: {
+        path: 'checkBoxRecords',
+        model: 'CheckBoxRecord'
+        }
+    })
+    .populate('teamMembers')  
+    .then(function(dbChallenges) {  
+        res.json(dbChallenges)
+    })
+    .catch(function(err) {
+        console.log(err);
+        // If an error occurs, send the error back to the client
+        res.json(err);
+    })
 };
 
 exports.findOneByName = function(req,res) {
     console.log("challengesController.findOneByName");
     Challenge.findOne({ name: req.params.name })
-        .populate('subjects')
-        .populate('teamMembers')
-        .then(function(dbChallenge) {
-            // If Challenges are successfully found, send them back to the client
-            res.json(dbChallenge);
-        })
-        .catch(function(err) {
-            // If an error occurs, send the error back to the client
-            res.json(err);
+    .populate({
+        path: 'toDoItems',
+        model: 'ToDoItem',
+        populate: {
+        path: 'checkBoxRecords',
+        model: 'CheckBoxRecord'
+        }
+    })
+    .populate('teamMembers')  
+    .then(function(dbChallenges) {  
+        res.json(dbChallenges)
+    })
+    .catch(function(err) {
+        // If an error occurs, send the error back to the client
+        res.json(err);
     })
 };
 
